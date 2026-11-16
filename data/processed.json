@@ -1,7 +1,69 @@
 {
-  "aliases": {},
-  "digests": [],
-  "items": {},
-  "updated_at": null,
+  "aliases": {
+    "CL:11060100": "SC:28355",
+    "CL:11060101": "SC:28354",
+    "CL:11060103": "COA:6170"
+  },
+  "digests": [
+    {
+      "created_at": "2026-11-16T23:28:24Z",
+      "email_id": "em_15zd54ebk793ttprnxrzcd7k0a",
+      "items": [
+        "SC:28354",
+        "SC:28355",
+        "COA:6170"
+      ],
+      "status": "draft",
+      "subject": "SC Advance Sheet Digest — November 12, 2026 — 3 opinions"
+    }
+  ],
+  "items": {
+    "COA:6170": {
+      "attempts": 1,
+      "case_name": "Gary Moore v. State",
+      "court": "COA",
+      "digest_subject": "SC Advance Sheet Digest — November 12, 2026 — 3 opinions",
+      "email_id": "em_15zd54ebk793ttprnxrzcd7k0a",
+      "error": null,
+      "filed_date": "2026-11-12",
+      "first_seen": "2026-11-16T23:28:24Z",
+      "kind": "opinion",
+      "last_attempt": "2026-11-16T23:28:24Z",
+      "link_url": "https://www.sccourts.org/media/opinions/HTMLFiles/COA/6170%20.pdf",
+      "source": "courtlistener-api",
+      "status": "summarized"
+    },
+    "SC:28354": {
+      "attempts": 1,
+      "case_name": "In the Matter of Louis David Nettles",
+      "court": "SC",
+      "digest_subject": "SC Advance Sheet Digest — November 12, 2026 — 3 opinions",
+      "email_id": "em_15zd54ebk793ttprnxrzcd7k0a",
+      "error": null,
+      "filed_date": "2026-11-12",
+      "first_seen": "2026-11-16T23:28:24Z",
+      "kind": "opinion",
+      "last_attempt": "2026-11-16T23:28:24Z",
+      "link_url": "https://www.sccourts.org/media/opinions/HTMLFiles/SC/28354.pdf",
+      "source": "courtlistener-api",
+      "status": "summarized"
+    },
+    "SC:28355": {
+      "attempts": 1,
+      "case_name": "Reid Fleming v. LG Chem Ltd.",
+      "court": "SC",
+      "digest_subject": "SC Advance Sheet Digest — November 12, 2026 — 3 opinions",
+      "email_id": "em_15zd54ebk793ttprnxrzcd7k0a",
+      "error": null,
+      "filed_date": "2026-11-12",
+      "first_seen": "2026-11-16T23:28:24Z",
+      "kind": "opinion",
+      "last_attempt": "2026-11-16T23:28:24Z",
+      "link_url": "https://www.sccourts.org/media/opinions/HTMLFiles/SC/28355.pdf",
+      "source": "courtlistener-api",
+      "status": "summarized"
+    }
+  },
+  "updated_at": "2026-11-16T23:28:24Z",
   "version": 1
 }
