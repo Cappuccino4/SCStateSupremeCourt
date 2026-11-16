@@ -49,7 +49,9 @@ from .models import (
 log = logging.getLogger(__name__)
 
 # Bump whenever SYSTEM_PROMPT or OUTPUT_SCHEMA changes: it is part of the cache key.
-PROMPT_VERSION = "2026-11-16.2"  # .2: keep the court's qualifiers and scope (after the first live review)
+# .2: keep the court's qualifiers and scope; .3: "clarifies" only when the opinion shows the question was
+# open (both changes came from verifying live summaries against the opinions' text).
+PROMPT_VERSION = "2026-11-16.3"
 
 UNCLEAR = "unclear from the opinion"
 NO_CHANGE = "No change to existing law."
@@ -132,7 +134,7 @@ summarize the document as written.
 5. Report the decision of the court: the majority opinion, the per curiam opinion, or the order. Do not \
 present a party's argument, the lower court's ruling, a concurrence, a dissent, or a passing remark as \
 the court's holding. You may note at the end of the holding that a justice or judge dissented or \
-concurred, naming them as the document does.
+concurred, naming them as the document does; never write that "all" justices or judges joined.
 
 6. Be neutral, precise, and plain. Use legal terms where precision requires them and plain English \
 everywhere else. Do not praise or criticize the decision, predict consequences the opinion does not \
@@ -191,7 +193,12 @@ first impression, or extends an existing rule to new circumstances.
 opinion states no rule of law.
 - "unclear": the document does not show which category applies.
 Classify by what the opinion says and does, not by how important the case seems. When two categories \
-seem possible, choose the more modest one unless the opinion's own words support the stronger one.
+seem possible, choose the more modest one unless the opinion's own words support the stronger one. Use \
+"clarifies" only when the opinion itself says or shows that the question was open: an issue of first \
+impression, a split among courts that it resolves, an ambiguity that it settles, or an express extension \
+of a rule to circumstances that no earlier decision it cites had covered. When the court applies a rule \
+it takes from precedent it treats as binding or settled, the label is "reaffirms", even if the court \
+rejects a new argument against applying that precedent or applies it in a different procedural setting.
 
 what_changed: how the decision affects South Carolina law, at the level of generality the court used and \
 with the conditions it attached, matching change_type:

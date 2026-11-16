@@ -316,7 +316,21 @@ def summarize_fleming(client, *, settings: Settings | None = None, cache=None, p
 
 
 def test_prompt_version():
-    assert sm.PROMPT_VERSION == "2026-11-16.2"
+    assert sm.PROMPT_VERSION == "2026-11-16.3"
+
+
+def test_system_prompt_reserves_clarifies_for_open_questions():
+    # Added after the second live review: an opinion that applied settled precedent was labeled
+    # "clarifies" and so appeared under "Rule changes this week".
+    prompt = sm.SYSTEM_PROMPT
+    for phrase in (
+        'Use "clarifies" only when the opinion itself says or shows that the question was open',
+        "a split among courts that it resolves",
+        "precedent it treats as binding or settled, the label is \"reaffirms\"",
+        "rejects a new argument against applying that precedent",
+        'never write that "all" justices or judges joined',
+    ):
+        assert phrase in prompt, phrase
 
 
 def test_system_prompt_keeps_the_courts_qualifiers():
