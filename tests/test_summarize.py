@@ -316,7 +316,25 @@ def summarize_fleming(client, *, settings: Settings | None = None, cache=None, p
 
 
 def test_prompt_version():
-    assert sm.PROMPT_VERSION == "2026-11-16.1"
+    assert sm.PROMPT_VERSION == "2026-11-16.2"
+
+
+def test_system_prompt_keeps_the_courts_qualifiers():
+    # Added after the first live dry run: summaries were factually right but sometimes stated a
+    # rule more broadly than the court did, or generalized another court's approach.
+    prompt = sm.SYSTEM_PROMPT
+    for phrase in (
+        "State the law exactly as narrowly as the court did",
+        "a prima facie showing at the pleading stage",
+        "the time period a rule governs",
+        "any concession or uncontested fact the court relied on",
+        "never drop a limit the court placed on a rule",
+        'name that court as the opinion does (for example, "the Seventh Circuit")',
+        "no more broadly than the court stated it",
+        "A tip must not reach further than the holding",
+        "at the level of generality the court used",
+    ):
+        assert phrase in prompt, phrase
 
 
 def test_system_prompt_covers_the_contract():

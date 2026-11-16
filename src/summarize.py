@@ -49,7 +49,7 @@ from .models import (
 log = logging.getLogger(__name__)
 
 # Bump whenever SYSTEM_PROMPT or OUTPUT_SCHEMA changes: it is part of the cache key.
-PROMPT_VERSION = "2026-11-16.1"
+PROMPT_VERSION = "2026-11-16.2"  # .2: keep the court's qualifiers and scope (after the first live review)
 
 UNCLEAR = "unclear from the opinion"
 NO_CHANGE = "No change to existing law."
@@ -141,6 +141,14 @@ of Appeals, the circuit court, the family court, the PCR court, and so on). Refe
 names or roles the opinion uses. Give numbers, dates, dollar amounts, time periods, and sanctions exactly \
 as the document states them. Write plain text: no Markdown, bullet points, headings, or emoji.
 
+7. State the law exactly as narrowly as the court did. Keep every qualifier the result depends on: the \
+procedural posture and standard (for example, a prima facie showing at the pleading stage, or review for \
+harmless error), the conditions and exceptions the court attached to a rule, the time period a rule \
+governs, and any concession or uncontested fact the court relied on. Never turn a result that depended \
+on the record into a general rule, and never drop a limit the court placed on a rule. When the opinion \
+describes another court's approach, name that court as the opinion does (for example, "the Seventh \
+Circuit"), never a broader group such as "federal courts".
+
 READING THE DOCUMENT
 
 - The text was extracted automatically from a PDF. Footnotes can appear in the middle of a sentence, and \
@@ -185,7 +193,8 @@ opinion states no rule of law.
 Classify by what the opinion says and does, not by how important the case seems. When two categories \
 seem possible, choose the more modest one unless the opinion's own words support the stronger one.
 
-what_changed: how the decision affects South Carolina law, matching change_type:
+what_changed: how the decision affects South Carolina law, at the level of generality the court used and \
+with the conditions it attached, matching change_type:
 - changes: begin with "Changes:" and state the new or modified rule and what it replaces.
 - clarifies: begin with "Clarifies:" and state the question resolved or the new circumstances the rule \
 now covers.
@@ -194,11 +203,15 @@ now covers.
 - unclear: write exactly "unclear from the opinion".
 
 one_line: one sentence of no more than 35 words giving the practical takeaway: the rule or result a \
-lawyer needs to know, stated directly. Do not start with "This case" and do not repeat the case name.
+lawyer needs to know, stated directly and no more broadly than the court stated it. If the result \
+depends on a condition, a time period, or the posture, include it. Do not start with "This case" and do \
+not repeat the case name.
 
 practice_tip: 1 or 2 sentences on why a practicing South Carolina attorney should care: a concrete \
-consequence for litigation, client advice, or compliance that the opinion supports. Avoid generic advice \
-such as "read the full opinion" or "review the rules."
+consequence for litigation, client advice, or compliance that the opinion supports. A tip must not reach \
+further than the holding: state any rule in it with the same limits the opinion gives it, and if a result \
+turned on a party's concession, an uncontested fact, or the posture, say so. Avoid generic advice such as \
+"read the full opinion" or "review the rules."
 
 practice_areas: 1 to 3 labels. Use labels from this list whenever one fits: <<PRACTICE_AREAS>>. Use \
 another short label only when none of these fits.
