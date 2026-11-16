@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SC Advance Sheet Digest: free weekly summaries of South Carolina appellate opinions</title>
+  <meta name="description" content="A free weekly email that summarizes every newly published opinion of the Supreme Court of South Carolina and the South Carolina Court of Appeals for practicing attorneys.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f8f5ee">
+  <meta name="format-detection" content="telephone=no">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SC Advance Sheet Digest">
+  <meta property="og:title" content="SC Advance Sheet Digest">
+  <meta property="og:description" content="Every newly published South Carolina Supreme Court and Court of Appeals opinion, summarized for practicing attorneys. Free, usually once a week.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap masthead">
+      <a class="brand" href="#top">
+        <img src="favicon.svg" width="32" height="32" alt="">
+        <span>SC Advance Sheet Digest</span>
+      </a>
+      <nav class="site-nav" aria-label="Sections">
+        <ul>
+          <li><a href="#what-you-get">What you get</a></li>
+          <li><a href="#sample">Sample</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li class="nav-cta"><a class="button button-small" href="#subscribe">Subscribe</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap">
+      <div class="rule-double" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">A free weekly email for South Carolina attorneys</p>
+          <h1 id="hero-title">Know what South Carolina’s appellate courts decided <em>this&nbsp;week</em>.</h1>
+          <p class="lede">Every newly published opinion from the Supreme Court of South Carolina and the South Carolina Court of Appeals, summarized for practitioners and delivered to your inbox each Wednesday or Thursday.</p>
+        </div>
+
+        <div class="signup-card" id="subscribe">
+          <h2 class="signup-title">Get the weekly digest</h2>
+          <!-- SETUP: replace the capitalized placeholder at the end of the action URL below with your Buttondown username. -->
+          <form class="signup-form" id="signup-form" action="https://buttondown.com/api/emails/embed-subscribe/YOUR_BUTTONDOWN_USERNAME" method="post" target="_blank">
+            <label for="email">Email address</label>
+            <input type="email" name="email" id="email" required autocomplete="email" placeholder="name@yourfirm.com" aria-describedby="signup-terms">
+            <input type="hidden" name="embed" value="1">
+            <button type="submit" class="button">Subscribe</button>
+          </form>
+          <p class="signup-notice" id="signup-notice" hidden>Signup isn't connected yet: the site owner needs to add their Buttondown username.</p>
+          <script>
+            // Until the form's action URL holds a real Buttondown username, show a notice and
+            // disable the button. The placeholder is assembled from pieces here so that it appears
+            // only once in this file: in the form's action attribute.
+            (function () {
+              var form = document.getElementById("signup-form");
+              var placeholder = ["YOUR", "BUTTONDOWN", "USERNAME"].join("_");
+              if (!form || (form.getAttribute("action") || "").indexOf(placeholder) === -1) {
+                return;
+              }
+              var button = form.querySelector('button[type="submit"]');
+              var input = document.getElementById("email");
+              var notice = document.getElementById("signup-notice");
+              if (button) {
+                button.disabled = true;
+              }
+              if (notice) {
+                notice.hidden = false;
+              }
+              if (input) {
+                input.setAttribute("aria-describedby", "signup-notice signup-terms");
+              }
+              form.addEventListener("submit", function (event) {
+                event.preventDefault();
+              });
+            })();
+          </script>
+          <p class="signup-terms" id="signup-terms">Free. Usually one email a week. Unsubscribe anytime.</p>
+          <p class="signup-fineprint">Subscribing opens a Buttondown confirmation page in a new tab. Your address is used only to send this newsletter.</p>
+        </div>
+
+        <ul class="hero-points">
+          <li>Rule changes flagged at the top of every issue</li>
+          <li>The holding, what changed, and a practice tip for each opinion</li>
+          <li>A link to every full opinion</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="what-you-get" aria-labelledby="what-you-get-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">The format</p>
+          <h2 id="what-you-get-title">What you get each week</h2>
+          <p class="section-intro">Every issue follows the same order, so you can see at a glance what changed and read further only where it matters to your practice.</p>
+        </div>
+
+        <ol class="format" role="list">
+          <li class="format-part">
+            <div class="format-label">
+              <p class="kicker">First in every issue</p>
+            </div>
+            <div class="format-body">
+              <h3>Rule changes this week</h3>
+              <!-- If you run the digest with SOURCE=sccourts (with the court's permission), you can mention rule-amendment orders here. -->
+              <p>A short list of the opinions that change or clarify a rule of law, each with a one-line note on what moved and a link to the opinion. When nothing changed, the digest says so. Supreme Court orders, including rule amendments, are not covered; each issue links to the Court’s orders page.</p>
+            </div>
+          </li>
+          <li class="format-part">
+            <div class="format-label">
+              <p class="kicker">Then, for each opinion</p>
+            </div>
+            <div class="format-body">
+              <h3>Every new published opinion</h3>
+              <p>Each newly published opinion from the Supreme Court and the Court of Appeals, headed by its opinion number, filing date, author, and disposition, and followed by:</p>
+              <dl class="fields">
+                <div>
+                  <dt>Takeaway</dt>
+                  <dd>The practical point, in one sentence.</dd>
+                </div>
+                <div>
+                  <dt>Holding</dt>
+                  <dd>The question decided, the rule applied, and the result, in two to four sentences.</dd>
+                </div>
+                <div>
+                  <dt>What changed</dt>
+                  <dd>Whether the opinion changes, clarifies, or reaffirms the law, and how. Or, plainly: “No change to existing law.”</dd>
+                </div>
+                <div>
+                  <dt>Why it matters</dt>
+                  <dd>A practice tip: the concrete reason a South Carolina practitioner should care.</dd>
+                </div>
+                <div>
+                  <dt>Practice areas</dt>
+                  <dd>Short labels, such as Insurance, Criminal, or Family, so you can scan for your field.</dd>
+                </div>
+                <div>
+                  <dt>Full opinion</dt>
+                  <dd>A direct link to the opinion PDF, because the summary is never the last word.</dd>
+                </div>
+              </dl>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section band" id="sample" aria-labelledby="sample-title">
+      <div class="wrap sample-layout">
+        <div class="sample-aside">
+          <div class="section-head">
+            <p class="kicker">Sample issue</p>
+            <h2 id="sample-title">Sample digest</h2>
+            <p class="section-intro">This is what an issue looks like, with the same sections in the same order as the email you will receive.</p>
+          </div>
+          <nav class="sample-toc" aria-label="Parts of the sample issue">
+            <p class="kicker">In this issue</p>
+            <ol role="list">
+              <li><a href="#sample-rule-changes">Rule changes this week</a></li>
+              <li><a href="#sample-supreme-court">Supreme Court</a></li>
+              <li><a href="#sample-court-of-appeals">Court of Appeals</a></li>
+              <li><a href="#sample-footer">Disclaimer and sources</a></li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="sample-main">
+          <figure class="sample">
+            <figcaption class="sample-label"><strong>Illustrative sample.</strong> The cases below are fictional.</figcaption>
+
+            <article class="email" aria-label="Sample email">
+              <dl class="email-meta">
+                <div>
+                  <dt>From</dt>
+                  <dd>SC Advance Sheet Digest</dd>
+                </div>
+                <div>
+                  <dt>Subject</dt>
+                  <dd class="email-subject">SC Advance Sheet Digest — October 21, 2026 — 3 opinions</dd>
+                </div>
+              </dl>
+
+              <div class="email-body">
+                <p class="email-masthead"><strong>SC Advance Sheet Digest</strong> · <span class="nowrap">October 21, 2026</span></p>
+                <p class="email-intro">This week: 2 new published opinions from the Supreme Court and 1 from the Court of Appeals.</p>
+
+                <h3 class="email-h" id="sample-rule-changes">Rule changes this week</h3>
+                <ul class="rule-changes">
+                  <li><strong>Doe v. Palmetto Mutual Insurance Co.</strong> (Supreme Court) — <strong class="change-label">Changes:</strong> Adopts an intent-to-return test for “resident relative” status and rejects the physical-presence test the circuit court applied. <span class="mock-link">PDF</span></li>
+                  <li><strong>Roe v. Roe</strong> (Court of Appeals) — <strong class="change-label">Clarifies:</strong> Adding marital contributions to a premarital account does not transmute the traceable premarital balance into marital property. <span class="mock-link">PDF</span></li>
+                </ul>
+                <p class="rule-note"><em>Supreme Court orders and rule amendments are not included in this digest; check the Supreme Court’s orders page.</em></p>
+
+                <h3 class="email-h" id="sample-supreme-court">Supreme Court</h3>
+
+                <article class="entry" aria-labelledby="sample-case-1">
+                  <h4 id="sample-case-1">Doe v. Palmetto Mutual Insurance Co.</h4>
+                  <p class="entry-meta"><strong>Op. No. 99001</strong> · Filed October 21, 2026 · Justice Thornbury · <strong>Reversed and remanded</strong></p>
+                  <p><strong>Takeaway:</strong> A college student living in a campus dorm can still be a “resident relative” covered by her parents’ auto policy if she intends to return home.</p>
+                  <p><strong>Holding:</strong> The Court considered whether a full-time student injured in a collision while living in campus housing was a resident of her parents’ household under the policy’s underinsured motorist provision. Because the policy did not define “resident,” the Court gave the term its ordinary meaning and construed it against the insurer, holding that a temporary absence for school does not end residency when the student intends to return. The Court reversed summary judgment for the insurer and remanded.</p>
+                  <p><strong>What changed:</strong> Changes: Adopts an intent-to-return test for “resident relative” status and rejects the physical-presence test the circuit court applied.</p>
+                  <p><strong>Why it matters:</strong> Before conceding or contesting UIM coverage for a student or another family member who is temporarily away, gather evidence of intent to return, such as a mailing address, belongings, vehicle registration, and time spent at home.</p>
+                  <p class="entry-areas"><em>Practice areas: Insurance, Torts</em></p>
+                  <p class="entry-links"><span class="mock-link">Read the full opinion (PDF)</span> · <span class="mock-link">CourtListener copy</span></p>
+                </article>
+
+                <hr>
+
+                <article class="entry" aria-labelledby="sample-case-2">
+                  <h4 id="sample-case-2">State v. Roe</h4>
+                  <p class="entry-meta"><strong>Op. No. 99002</strong> · Filed October 21, 2026 · Justice Ellison · <strong>Affirmed</strong></p>
+                  <p><strong>Takeaway:</strong> A three-year delay before trial did not violate the defendant’s right to a speedy trial because defense continuances caused most of it and no specific prejudice was shown.</p>
+                  <p><strong>Holding:</strong> The Court considered whether the circuit court erred in refusing to dismiss the indictment for denial of a speedy trial. Weighing the length of the delay, the reasons for it, the defendant’s assertion of the right, and prejudice, the Court found that defense-requested continuances accounted for most of the delay and that the defendant identified no lost witness or evidence. The conviction was affirmed.</p>
+                  <p><strong>What changed:</strong> Reaffirms: Speedy-trial claims are decided by balancing all four factors, and delay requested by the defense weighs against the defendant.</p>
+                  <p><strong>Why it matters:</strong> Defense counsel should assert the speedy-trial right on the record early and document concrete prejudice; the length of the delay alone will not carry the motion.</p>
+                  <p class="entry-areas"><em>Practice areas: Criminal, Constitutional Law</em></p>
+                  <p class="entry-links"><span class="mock-link">Read the full opinion (PDF)</span> · <span class="mock-link">CourtListener copy</span></p>
+                </article>
+
+                <h3 class="email-h" id="sample-court-of-appeals">Court of Appeals</h3>
+
+                <article class="entry" aria-labelledby="sample-case-3">
+                  <h4 id="sample-case-3">Roe v. Roe</h4>
+                  <p class="entry-meta"><strong>Op. No. 9901</strong> · Filed October 21, 2026 · Judge Ashworth · <strong>Affirmed in part, reversed in part, and remanded</strong></p>
+                  <p><strong>Takeaway:</strong> A premarital retirement account does not become marital property just because marital contributions were later added, as long as the premarital balance can be traced.</p>
+                  <p><strong>Holding:</strong> The court considered whether the family court erred in treating the husband’s entire retirement account as marital property. Because account statements showed the balance on the date of marriage and the growth attributable to it, the court held that the premarital portion remained nonmarital and that only contributions made during the marriage, with their growth, were subject to division. The court affirmed the rest of the equitable distribution and remanded for recalculation.</p>
+                  <p><strong>What changed:</strong> Clarifies: Adding marital contributions to a premarital account does not transmute the traceable premarital balance into marital property.</p>
+                  <p><strong>Why it matters:</strong> In divorces involving retirement accounts, request statements from the date of marriage early in discovery; tracing evidence decided this appeal.</p>
+                  <p class="entry-areas"><em>Practice areas: Family</em></p>
+                  <p class="entry-links"><span class="mock-link">Read the full opinion (PDF)</span> · <span class="mock-link">CourtListener copy</span></p>
+                </article>
+
+                <footer class="email-footer" id="sample-footer">
+                  <p class="email-disclaimer"><strong>AI-generated summaries for informational purposes only; not legal advice; always read the full opinion.</strong></p>
+                  <p>Summaries are written by an AI model (claude-sonnet-5-5) from the text of each opinion and may contain errors or omissions. Opinions can be revised, withdrawn, or reheard.</p>
+                  <p>Opinions: South Carolina Judicial Branch, retrieved via CourtListener (Free Law Project).</p>
+                  <p>You can unsubscribe at any time with the link at the bottom of this email.</p>
+                </footer>
+              </div>
+
+              <p class="email-unsub"><span class="mock-link">Unsubscribe</span></p>
+            </article>
+
+            <p class="sample-note">Links in this sample are inactive. In a real issue, each one opens the opinion.</p>
+          </figure>
+
+          <p class="cta-row"><a class="button" href="#subscribe">Subscribe for free</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works" aria-labelledby="how-it-works-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Method</p>
+          <h2 id="how-it-works-title">How it works</h2>
+          <p class="section-intro">Each issue is assembled automatically from public sources, in three steps.</p>
+        </div>
+
+        <ol class="steps" role="list">
+          <li class="step">
+            <p class="step-number" aria-hidden="true">1</p>
+            <h3>Collected</h3>
+            <p>Newly published opinions from the South Carolina Judicial Branch are retrieved through <a href="https://www.courtlistener.com/">CourtListener</a>, a free <span class="nowrap">legal-data</span> service run by the nonprofit <a href="https://free.law/">Free Law Project</a>.</p>
+          </li>
+          <li class="step">
+            <p class="step-number" aria-hidden="true">2</p>
+            <h3>Summarized</h3>
+            <p>Claude, the AI model made by <a href="https://www.anthropic.com/">Anthropic</a>, writes each summary from that opinion’s text alone. It is instructed not to draw on outside knowledge, to cite only authorities that appear in the opinion, and to write “unclear from the opinion” rather than guess.</p>
+          </li>
+          <li class="step">
+            <p class="step-number" aria-hidden="true">3</p>
+            <h3>Delivered</h3>
+            <p>The week’s summaries are assembled into one email and sent through <a href="https://buttondown.com/">Buttondown</a>, usually on Wednesday or Thursday, with a link to every full opinion. If an opinion posts late or a summary wasn’t ready, a short supplement follows on Thursday.</p>
+          </li>
+        </ol>
+
+        <p class="steps-note">When an opinion is too long to summarize in full, its entry says how much of the text the summary is based on. If a summary can’t be produced, the opinion is still listed with a link to read it.</p>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Questions</p>
+          <h2 id="faq-title">Frequently asked questions</h2>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item">
+            <h3>Is it free?</h3>
+            <p>Yes. The digest costs nothing, and your email address is used only to send it.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How accurate are the summaries?</h3>
+            <p>They are a careful starting point, not an authority. Claude summarizes each opinion from its own text and is instructed to say “unclear from the opinion” rather than guess, but AI-generated summaries can still contain errors or omissions. Treat every summary as a guide to the opinion, never a substitute for reading it.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Which courts are covered?</h3>
+            <!-- If you run the digest with SOURCE=sccourts (with the court's permission), you can mention rule-amendment orders here. -->
+            <p>Published opinions of the Supreme Court of South Carolina and the South Carolina Court of Appeals. Unpublished opinions and Supreme Court orders (including rule amendments) are not included; each issue links to the Supreme Court’s orders page.</p>
+          </div>
+          <div class="faq-item">
+            <h3>When does it arrive?</h3>
+            <p>Usually once a week, on Wednesday or Thursday. The digest checks for new opinions on Wednesday afternoon and again on Thursday morning (Eastern Time); if an opinion posts late, or a summary was not available in Wednesday’s issue, a short supplement follows. If no new published opinions were released, there is no email that week.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How do I unsubscribe?</h3>
+            <p>Every email ends with an unsubscribe link from Buttondown, the service that sends the newsletter. Use it at any time and you will stop receiving the digest.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is this legal advice?</h3>
+            <p>No. The digest is for informational purposes only. It is not legal advice, it does not create an attorney-client relationship, and it is no substitute for reading the opinion and applying your own professional judgment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="disclaimer" aria-labelledby="disclaimer-title">
+      <div class="wrap">
+        <div class="disclaimer">
+          <div class="disclaimer-head">
+            <p class="kicker">Please read</p>
+            <h2 id="disclaimer-title">Disclaimer</h2>
+            <p class="disclaimer-lead">AI-generated summaries for informational purposes only; not legal advice; always read the full opinion.</p>
+          </div>
+          <ul class="disclaimer-list">
+            <li>Summaries are written by an AI model from the text of each opinion and may contain errors or omissions. Opinions can be revised, withdrawn, or reheard after they are published.</li>
+            <li>Nothing in the digest or on this site creates an attorney-client relationship.</li>
+            <li>SC Advance Sheet Digest is an independent publication. It is not affiliated with or endorsed by the South Carolina Judicial Branch and is not the Judicial Branch’s official Advance Sheets. For official opinions, visit <a href="https://www.sccourts.org/">sccourts.org</a>.</li>
+            <li>It is likewise not affiliated with or endorsed by Free Law Project or Anthropic.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="rule-double" aria-hidden="true"></div>
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SC Advance Sheet Digest</p>
+          <p>Weekly summaries of published South Carolina appellate opinions.</p>
+          <p>Not affiliated with the South Carolina Judicial Branch.</p>
+        </div>
+        <div>
+          <p class="footer-links"><a href="#disclaimer">Disclaimer</a> · <a href="#top">Back to top</a></p>
+          <p>Privacy: email addresses are stored by Buttondown only to send this newsletter. This site uses no cookies, analytics, or trackers.</p>
+          <p>Built with GitHub Pages.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

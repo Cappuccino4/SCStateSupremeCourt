@@ -1,0 +1,10 @@
+# Runtime dependencies (exact versions for reproducible weekly runs).
+anthropic==2.8.0
+beautifulsoup4==4.15.0
+lxml==6.1.3
+markdown==3.11.3
+pdfplumber==0.11.10
+pypdf==7.1.0
+python-dotenv==1.2.4
+requests==2.34.2
+tzdata==2026.6

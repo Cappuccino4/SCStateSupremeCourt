@@ -1,0 +1,346 @@
+THE STATE OF SOUTH CAROLINA
+In The Supreme Court
+Reid Fleming, Petitioner,
+v.
+The Planet Vape, LLC; SCECIGARETTE, LLC; LG
+Chem, Ltd.; John Doe Distributor #1; John Doe
+Distributor #2; and John Doe Distributor #3, Defendants,
+Of which LG Chem, Ltd. is the Respondent.
+Appellate Case No. 2025-002086
+ON WRIT OF CERTIORARI TO THE COURT OF APPEALS
+Appeal From Charleston County
+Roger M. Young, Sr., Circuit Court Judge
+Opinion No. 28355
+Heard September 16, 2026 – Filed November 12, 2026
+REVERSED
+John Preston Griffith, of Smith & Griffith, LLP, of
+Anderson; Christopher James Moore, of Richardson
+Thomas, LLC, of Florence; and Grace Madeline
+Sturman, of Richardson Thomas, LLC, of Columbia, all
+for Petitioner.
+C. Mitchell Brown, Rachel Atkin Hedley, and Allen
+Mattison Bogan, all of Nelson Mullins Riley &
+Scarborough, LLP, of Columbia, for Respondent.
+JUSTICE HILL: Anderson resident Reid Fleming alleges he was burned when the
+model 18650 lithium-ion battery in his vape pen exploded. His injury occurred in
+Charleston. Fleming claims LG Chem, Ltd. (LG) manufactured the battery, which
+he bought in Charleston from The Planet Vape, LLC. Fleming sued LG, Planet
+Vape, and others in South Carolina circuit court for his injuries. LG moved to
+dismiss Fleming's claim against it, contending South Carolina lacked personal
+jurisdiction. The trial court granted LG's motion, and the court of appeals affirmed,
+with Judge Hewitt dissenting. Fleming v. Planet Vape, LLC, Op. No. 2025-UP-295
+(S.C. Ct. App. filed August 13, 2025).
+We granted Fleming's petition for writ of certiorari to consider whether due process
+permits LG to be subject to personal jurisdiction in South Carolina under the
+circumstances here. We hold it does.
+I. Fleming's Complaint
+LG is a South Korean corporation with its principal offices located in Seoul. Its
+consumer electronics business spans the globe. In his complaint, Fleming alleges
+LG has numerous contacts with South Carolina. According to Fleming, these
+contacts relate to his claims because LG manufactures lithium-ion batteries knowing
+they will be distributed and sold in South Carolina to individuals who will use them
+to power vape pens. Despite this knowledge, LG has done "virtually nothing to
+prevent its lithium-ion battery products from being sold individually throughout the
+United States and, specifically, in South Carolina." Fleming claims LG continued
+this distribution scheme knowing vaping devices in which its lithium-ion batteries
+were being used lack adequate circuitry and other safety protections. He further
+alleges LG knows its lithium-ion batteries are being rewrapped by its commercial
+customers and being sold throughout the United States and online for individual use.
+Fleming's complaint listed five cases pending in South Carolina where the circuit
+court has exercised personal jurisdiction over LG in similar lawsuits involving
+individuals injured by LG lithium-ion batteries used to power vape pens. He also
+contends LG has consented to personal jurisdiction in a federal court action in South
+Carolina involving an exploding lithium-ion battery.
+II. Personal Jurisdiction: The Long Arm Statute and Due Process
+A court may only exert its jurisdictional power when that power has been
+legislatively granted and does not exceed constitutional limits. Accordingly,
+determining whether a South Carolina court has personal jurisdiction over a non-
+resident defendant involves two inquiries. S. Plastics Co. v. S. Com. Bank, 310 S.C.
+256, 259, 423 S.E.2d 128, 130 (1992). The first inquiry—which asks whether the
+jurisdictional reach of our long-arm statute extends to the defendant's conduct—is
+not at issue here. The second inquiry asks if exercising personal jurisdiction over
+the defendant comports with the Due Process Clause of the Fourteenth Amendment.
+See U.S. Const. amend. XIV. This is the familiar world still governed by the
+landmark decision in International Shoe, which held that due process allows a court
+to exercise personal jurisdiction over a non-resident defendant when the defendant
+has enough "minimum contacts" with the forum state to make the state's jurisdiction
+reasonable in the sense that it "does not offend 'traditional notions of fair play and
+substantial justice.'" Int'l Shoe Co. v. Washington, 326 U.S. 310, 316–17 (1945)
+(quoting Milliken v. Meyer, 311 U.S. 457, 463 (1941)).
+III. Standard of Review
+To survive a motion to dismiss for lack of personal jurisdiction, a plaintiff bears "the
+burden of proving personal jurisdiction over a nonresident" by making "a prima facie
+showing of jurisdiction either in the complaint or in affidavits." Cockrell v. Hillerich
+& Bradsby Co., 363 S.C. 485, 491, 611 S.E.2d 505, 508 (2005). We must affirm a
+trial court's personal jurisdiction ruling unless it has no factual support or was the
+result of an error of law. See Atl. Soft Drink Co. of Columbia v. S.C. Nat'l Bank, 287
+S.C. 228, 233, 336 S.E.2d 876, 879 (1985).
+IV. General and Specific Personal Jurisdiction: The Framework
+There are two types of personal jurisdiction: general and specific. A court has
+general (or "all purpose") jurisdiction over an individual in the state of his domicile
+and over a corporation in its state of incorporation and the state where it has its
+principal place of business. Daimler AG v. Bauman, 571 U.S. 117, 137 (2014). As
+its name implies, general jurisdiction is broad—in most instances, a court that has
+general jurisdiction over a defendant may hear cases of any type against that
+defendant, regardless of where the conduct occurred or the claim arose.
+This case turns on specific jurisdiction. A court has specific (or "case-linked")
+jurisdiction over a non-resident defendant when the claim has a sufficient connection
+to the forum state. The sufficiency of the connection depends upon the relationship
+between the defendant, the forum, and the claim. For specific jurisdiction to attach,
+three conditions must be met. Burger King Corp. v. Rudzewicz, 471 U.S. 462, 472–
+78 (1985). First, the defendant must have "purposefully avail[ed] itself of the
+privilege of conducting activities within the forum state, thus invoking the benefits
+and protections of its laws." Hanson v. Denckla, 357 U.S. 235, 253 (1958). The
+requisite contacts cannot be random, nor can they be generated by the unilateral
+actions of a third party.
+Second, the claim must "arise out of or relate to" the defendant's contacts with the
+forum state. Ford Motor Co. v. Montana Eighth Jud. Dist. Ct., 592 U.S. 351, 359
+(2021) (quoting Bristol-Myers Squibb Co. v. Superior Ct. of California, San
+Francisco Cnty., 582 U.S. 255, 262 (2017)). That is, there must be a link between
+the forum and the claims, typically an activity or occurrence that took place in the
+forum state. Id. at 359–60.
+Third, the exercise of personal jurisdiction over the defendant must comply with the
+fundamental fairness that due process guarantees, which International Shoe
+expressed as "the traditional notions of fair play and substantial justice."
+V. LG's Arguments Against Specific Personal Jurisdiction
+LG does not dispute that, by its commercial presence here, it has purposefully
+availed itself of doing business in South Carolina markets. It stridently disputes,
+however, the second specific jurisdiction requirement: that Fleming's claims arise
+out of or relate to LG's South Carolina contacts. LG presses two main arguments.
+The first attacks the allegations of Fleming's complaint that LG has distributed or
+sold 18650 lithium-ion batteries in South Carolina. The second maintains that
+because LG only designs, markets, and sells 18650 batteries in multi-packs to
+commercial customers for use as component parts and does not distribute or sell
+individual batteries directly to consumers for personal use, Fleming's injury cannot
+arise out of or relate to LG's South Carolina contacts.
+A. Fleming's Complaint and LG's Distribution of 18650 Batteries in South
+Carolina
+Fleming's complaint states he was injured by an LG lithium-ion battery and LG has
+systematically and continuously sold lithium-ion batteries in South Carolina. LG
+counters that Fleming has not shown LG's contacts include distribution or sale of the
+18650 lithium-ion battery. According to LG, this absence of evidence is evidence
+of the absence of the minimum contacts needed to justify jurisdiction. This argument
+suffers from the fatal logical fallacy known as an appeal to ignorance. Easily
+identified in the wild by its missing logical step, the fallacy is to assume something
+is false because it has not been proven true, and vice versa. Mercifully, its lifespan
+is brief in most legal contexts because, as here, it conflicts with the applicable burden
+of proof.
+The hole in LG's logic is its assumption, without proof, that Fleming's description of
+LG's lithium-ion battery activity does not encompass 18650 lithium-ion batteries.
+Although it attacks Fleming's jurisdictional allegations as overbroad, it does not
+deny them. Nowhere does LG deny that it serves the South Carolina market with
+lithium-ion batteries, and nowhere does it deny that this includes the 18650 type.
+This non-denial did not flip the burden back to Fleming and require him to prove
+that which was never denied. Even if Fleming's general grouping of all lithium-ion
+batteries left room for some factual dispute about its scope, at the pleading stage we
+are obligated to resolve that dispute in favor of Fleming, not LG. See Brown v. Inv.
+Mgmt. & Rsch., Inc., 323 S.C. 395, 399, 475 S.E.2d 754, 756 (1996) ("Courts will
+take as true the allegations of the nonmoving party and resolve all factual disputes
+in its favor." (quoting 5A Charles A. Wright & Arthur R. Miller, Federal Practice
+and Procedure § 1351 (Supp. 1995))).
+B. LG and Individual Consumer Use of LG 18650 Batteries
+In its second argument attacking relatedness, LG contends it has never designed,
+marketed, distributed, or sold lithium-ion 18650 batteries for personal consumer use
+anywhere, much less in South Carolina. It filed an affidavit stating it sells them only
+to commercial customers in packs for use as component parts and never to individual
+consumers for personal use. Therefore, so LG's theory goes, Fleming's injury was
+not caused by LG's conduct but by the unilateral actions of rogue sellers who
+somehow obtained the packs, broke them open, and sold single batteries to
+consumers. Therefore, according to LG, Fleming's claims cannot "arise out of or
+relate to" its contacts or activity within South Carolina.
+LG's argument rests on a causation theory the United States Supreme Court rejected
+in Ford. In that case, Ford Motor Company insisted it could not be subject to
+personal jurisdiction in a state just because its vehicles caused an injury in that state.
+Instead, specific jurisdiction would be proper only in a forum where Ford's conduct
+giving rise to the plaintiff's claim occurred, either where the car was sold or where
+it was designed and manufactured. Ford urged that the location of the injury
+occurred was irrelevant for personal jurisdiction purposes when Ford's conduct that
+caused the injury occurred outside of that state.
+Rejecting Ford's arguments, the Court emphasized that "[n]one of our precedents has
+suggested that only a strict causal relationship between the defendant's in-state
+activity and the litigation will do." Ford, 592 U.S. at 362. The court explained that
+a defendant's relationship with a forum state may be enough to support specific
+jurisdiction even when there is no proof the plaintiff's claim was caused by the
+defendant's in-state conduct. Id. Put another way, an injury may arise out of or be
+related to a defendant's contacts even though those contacts did not cause the injury.
+The distinction the Ford Court draws between causation and relatedness is sublime,
+to say the least. It can perhaps be better understood by remembering that the
+touchstone of due process in personal jurisdiction is that an out of state defendant
+must have "fair warning" that its activity affecting the forum state may subject it to
+being held accountable in that state for related conduct. Burger King Corp., 471
+U.S. at 471–72. Fair warning may exist even though the occurrence or activity is
+not caused by—but nevertheless arises out of or is related to—the defendant's forum
+state contacts.
+Although the second or relatedness prong of specific jurisdiction does not demand
+that the injury would not have happened but for the defendant's in-state conduct, we
+must still examine what the level of relatedness must be. It has long been the law
+that specific jurisdiction does not lie over a corporation that, although it may have
+systematically and continuously conducted activities in the forum state, did nothing
+in that state that relates to the plaintiff's claims. Rather, for specific jurisdiction to
+attach, there must be some affiliation between the forum and the litigation,
+"principally, activity or an occurrence that takes place in the forum state and is
+therefore subject to the State's regulation." Goodyear Dunlop Tires Operations, S.A.
+v. Brown, 564 U.S. 915, 919 (2011). This is consistent with the observation in
+International Shoe that even single or occasional acts of a corporation in a state
+"because of their nature and quality and the circumstances of their commission, may
+be deemed sufficient to render the corporation liable to suit." 326 U.S. at 318.
+We need not dwell on the far end of the relatedness continuum, for the complaint
+demonstrates that LG's activity would meet even a strict causation standard. Ford
+reaffirmed the principle that specific jurisdiction may be found when a company
+"serves a market for a product in the forum state and the product malfunctions there."
+Ford, 592 U.S. at 363. The Court did not hedge on this vital point. Its statement
+was not limited to or conditioned upon whether the injury was caused by the intended
+use of the product.
+Applying this principle is enough for us to decide that LG is subject to specific
+personal jurisdiction here. Taking, as we must, Fleming's allegations as true that LG
+has systematically and continuously served the lithium-ion battery market in South
+Carolina (including the 18650 market), there is little doubt that the occurrence—
+Fleming's injury—arises out of and is related to LG's activity here. After all, a
+corporation's minimum contacts in a forum state "has never been doubted when the
+activities of the corporation there have not only been continuous and systematic, but
+also give rise to the liabilities sued on." Int'l Shoe, 326 U.S. at 317.
+Also, for purposes of due process, where the injury occurred or who was injured is
+relevant. The forum state's interest in exercising jurisdiction intensifies if the injury
+occurred in that state and the injury is to one of its citizens. This location connection
+goes to the due process concern that the state's jurisdiction be reasonable, which
+acknowledges that states have a profound interest in the orderly administration of
+their laws. These interests do not wane when the injury occurred by an unintended
+use of an out of state company's product to a person outside the company's intended
+market. For example, if a battery pack had exploded in South Carolina while in the
+back of a truck delivering a shipment of batteries to a South Carolina business and
+injuring the truck driver and bystanders, LG could hardly argue that the injuries did
+not arise out of or relate to its activity in South Carolina because the truck driver and
+the bystanders were not intended users of the product. A non-resident defendant
+who has raked in profits by exploiting a state's business market with a product may
+not escape jurisdiction by claiming the injury arose out of the unintended use of the
+product or caused damage to someone other than an intended user. Such a
+jurisdictional rule would be as artificial as it is unprecedented and unfair.
+At any rate, the complaint alleges LG not only knew about the widespread use of its
+individual lithium-ion batteries by consumers in vaping pens, but it also did little to
+deter such use, even after it knew these uses were resulting in malfunctions causing
+grave injury in this state.
+Although, without more, "the place of a plaintiff's injury and residence cannot create
+a defendant's contact with the forum state," those places "may be relevant in
+assessing the link between the defendant's forum contacts and the plaintiff's suit—
+including its assertions of who was injured where." Ford, 592 U.S. at 371. Like the
+plaintiffs in Ford, here, Fleming "brought suit in the most natural State—based on
+an 'affiliation between the forum and the underlying controversy, principally [an]
+activity or an occurrence that t[ook] place' there." Id. at 370 (quoting Bristol-Myers
+Squibb Co., 582 U.S. at 262).
+We are aware that other courts have confronted similar jurisdictional arguments by
+LG and other battery manufacturers. Some have found personal jurisdiction exists,
+others have not. Compare L.G. Chem America, Inc. v. Morgan, 670 S.W.3d 341,
+351 (Tex. 2023) (holding LG's contacts with Texas were enough to satisfy due
+process for personal jurisdiction purposes), and Sullivan v. LG Chem, LTD., 79 F.4th
+651, 674 (6th Cir. 2023) (holding a Michigan federal district court had personal
+jurisdiction over LG), with Yamashita v. LG Chem, Ltd., 62 F.4th 496, 507–09 (9th
+Cir. 2023) (finding the plaintiff did not satisfy his burden of proof for personal
+jurisdiction and noting LG's contacts with Hawaii were sales of 18650 batteries to
+manufacturers, not stand-alone battery sales to individual consumers).
+One of the most recent and prominent is B.D. ex rel. Myers v. Samsung Sdi Co., 143
+F.4th 757 (7th Cir. 2025). There, the Seventh Circuit held that Indiana could not
+exercise specific jurisdiction over Samsung in a case involving an 18650 lithium-ion
+battery that exploded in an Indiana resident's pocket and injured him in Indiana. The
+Seventh Circuit fashioned a specific jurisdiction test focusing on whether the non-
+resident defendant had availed itself of Indiana's forum by delivering its products
+into the stream of commerce expecting Indiana consumers would purchase them. At
+this level of generality, the test follows World-Wide Volkswagen Corp. v, Woodson,
+444 U.S. 286 (1980), scrupulously. The Seventh Circuit went on, though, to refine
+the test by separating the stream of commerce into two currents, or what it called the
+"end-product" stream and the "derivative-product" stream. B.D., 143 F.4th at 767.
+The "end-product" stream denoted 18650 battery packs Samsung marketed and sold
+as component parts to commercial customers, while the "derivative product" stream
+was consisted of individual 18650 batteries third parties had broken off from the
+packs and resold to individuals outside of Samsung's intended distribution chain. Id.
+at 767–69. The Seventh Circuit held that because the plaintiff was injured by the
+derivative product, his claim did not arise out of and was not related to Samsung's
+Indiana contacts. Id. at 772–73. Therefore, specific jurisdiction over Samsung was
+lacking. Id. at 775; see also Ethridge v. Samsung SDI Co., Ltd., 163 F.4th 136, 139
+(5th Cir. 2025) (following the Seventh Circuit's approach in Myers); Franceschi v.
+LG Chem, Ltd., 580 P.3d 1279, 1284–86 (Nev. 2025) (same).
+With much respect, we find this separatist approach—or intended market
+approach—too formalistic. International Shoe warned of the folly of focusing on
+mechanical or quantitative approaches to personal jurisdiction. 326 U.S. at 319; see
+also Burger King Corp., 471 U.S. at 478 ("The Court long ago rejected the notion
+that personal jurisdiction might turn on 'mechanical' tests, or on 'conceptualistic . . .
+theories of the place of contracting or of performance.'") (citations omitted) (quoting
+Int'l Shoe, 326 U.S. at 319; Hoopeston Canning Co. v. Cullen, 318 U.S. 313, 316
+(1943)). Perhaps courts could, with their visible pens, sort what the invisible hand
+has unsorted in the marketplace. But such an effort would remove adjudication from
+the reality of economic markets. Products have ways of finding markets far afield
+of those their creators envisioned. When a company learns of such secondary
+markets and continues to indirectly supply them, such activity also supplies the
+contacts necessary to support personal jurisdiction over the company in lawsuits that
+arise out of or are related to that activity.
+The intended market approach is just another way to impose a strict causation
+requirement on the specific jurisdiction test. This approach in essence says that an
+occurrence that takes place in the forum state does not count as a contact by the non-
+resident defendant for jurisdictional purposes unless the occurrence was caused by
+the intended scope of the non-resident's activity.
+In any event, the intended market approach would not help LG here. Fleming has
+made a prima facie showing that LG's conduct demonstrates an intent to serve the
+South Carolina market for individual 18650 batteries used in vaping devices. LG is
+correct that the mere foreseeability that its product may end up in South Carolina is
+not enough to justify jurisdiction. Yet, foreseeability can still be relevant, for "the
+foreseeability that is critical to due process is not the mere likelihood that a product
+will find its way into the forum State. Rather it is that the defendant's conduct and
+connection with the forum state are such that he should reasonably anticipate being
+haled into court there." World-Wide Volkswagen, 444 U.S. at 287. The Court in
+World-Wide Volkswagen further explained:
+Hence if the sale of a product of a manufacturer or distributor . . . is not
+simply an isolated occurrence, but arises from the efforts of the
+manufacturer or distributor to serve directly or indirectly, the market
+for its product in other States, it is not unreasonable to subject it to suit
+in one of those States if its allegedly defective merchandise has there
+been the source of injury to its owner or to others. The forum State does
+not exceed its powers under the Due Process Clause if it asserts
+personal jurisdiction over a corporation that delivers its products into
+the stream of commerce with the expectation that they will be
+purchased by consumers in the forum State.
+Id. at 297–98. We have followed this expression of the stream of commerce theory.
+State v. NV Sumatra Tobacco Trading, Co., 379 S.C. 81, 89–91, 666 S.E.2d 218,
+222 (2008).
+Fleming has made a prima facie showing that LG has placed lithium-ion batteries in
+the stream of commerce knowing they will reach South Carolina and be sold
+individually to consumers here. He has further shown that LG knows these sales
+have caused injury to individual consumers and knows it has been repeatedly sued
+in the courts of this state for injuries arising out of such individual use. These
+showings suggest LG's intended market in fact includes individuals seeking to buy
+lithium-ion batteries for use in vaping devices. They also fortify our conclusion that
+LG received ample "fair warning" that it may have to defend itself in South Carolina
+courts for its related conduct here.
+We are far removed from the situation where the stream of commerce, aided by the
+efforts of third parties, has swept the non-resident defendant's product into a forum
+without the defendant's knowledge or design. Fleming's allegations demonstrate that
+LG has continued to profit from distributing its products while knowing its
+distribution stream has been compromised.
+In sum, LG's contacts with South Carolina that relate to Fleming's injury are not
+random or fortuitous. It does not offend due process to require LG to defend itself
+in a forum where it has known its products have been sold and wreaked injury.
+c. Fair Play and Substantial Justice
+The third and last aspect of specific jurisdiction we must resolve brings us back to
+the overarching directive that the non-resident's contacts with the forum state must
+be extensive enough so that the exercise of jurisdiction is fundamentally fair to LG,
+meaning it is consistent with traditional due process notions of fair play and
+substantial justice. Chase Secs. Corp. v. Donaldson, 325 U.S. 304, 316–17 (1945).
+By its wide operation in the South Carolina lithium-ion battery market, LG benefits
+from the protection of our laws that empower LG to defend its property rights,
+enforce its contracts, and create the hospitable market in which it has chosen to sell
+its lithium-ion batteries. This places a reciprocal obligation on LG to comply with
+the laws of that state that regulate its conduct and protect the safety of the state's
+citizens. Under such circumstances, it can be neither unfair, unjust, nor surprising
+to LG to be subject to suit here to enforce these obligations. And principles of
+interstate federalism support allowing jurisdiction here to advance South Carolina's
+legitimate interests in enforcing our own laws and providing our resident citizens
+with a convenient forum to seek compensation for injuries inflicted on our resident
+citizens by non-residents who have conducted significant activity here related to
+those injuries.
+Finally, allowing LG to evade jurisdiction here would allow it to distribute and sell
+goods in the South Carolina market without complying with the same safety laws
+and regulations that other companies doing business here must honor.
+VI. Conclusion
+Because we conclude South Carolina may exert specific personal jurisdiction over
+LG in this case, the rulings of the trial court and the court of appeals are
+REVERSED.
+KITTREDGE, C.J., JAMES, VERDIN, JJ., and Acting Justice Daniel Dewitt
+Hall, concur.

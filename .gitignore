@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Run outputs (uploaded as workflow artifacts instead)
+output/
+.cache/
+
+# Local settings. Never commit secrets.
+.env
+
+# OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini

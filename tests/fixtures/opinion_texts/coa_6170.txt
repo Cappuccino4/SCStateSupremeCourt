@@ -1,0 +1,487 @@
+THE STATE OF SOUTH CAROLINA
+In The Court of Appeals
+Gary Moore, Petitioner,
+v.
+State of South Carolina, Respondent.
+Appellate Case No. 2024-000459
+ON WRIT OF CERTIORARI
+Appeal From Chesterfield County
+Paul M. Burch, Trial Court Judge
+Michael S. Holt, Post-Conviction Relief Court Judge
+Opinion No. 6170
+Heard October 7, 2026 – Filed November 12, 2026
+REVERSED
+Senior Appellate Defender Lara Mary Caudy, of
+Columbia, for Petitioner.
+Attorney General Alan McCrory Wilson and Assistant
+Attorney General Brian Hollis Gibbs, both of Columbia,
+for Respondent.
+KONDUROS, J.: In this post-conviction relief (PCR) action, Gary Moore
+(Petitioner) appeals the denial of his PCR application. He contends the PCR court
+erred in not finding trial counsel was ineffective for failing to request jury
+instructions that specific intent to kill was an element of attempted murder and for
+failing to object to the omission of specific intent instructions. We reverse.
+FACTS/PROCEDURAL HISTORY
+On July 14, 2015, Petitioner entered McCormick's convenience store to purchase
+some items. Once inside, Petitioner walked past Charles Wallace. Wallace
+slapped Petitioner and grabbed him, pulling Petitioner to the ground. A fight
+ensued. During this altercation, Petitioner stabbed Wallace four times with a knife
+Petitioner always carried. Steven Hooks, another patron of McCormick's that day,
+separated the two. After exiting the store, Petitioner called 911, alleging he had
+been the victim of an assault, a claim he maintained to officers responding at the
+scene.
+Upon arriving at the scene, Sergeant Tim Hutchinson with Chesterfield County
+Sheriff's Office (Sheriff's Office) placed Petitioner in handcuffs and retrieved the
+knife used in the stabbing. Around this time, EMS arrived and treated Wallace
+before he was airlifted to a hospital in Charlotte. Wallace suffered a punctured
+lung and four stab wounds. He underwent surgery and was discharged from the
+hospital after four or five days.
+A grand jury indicted Petitioner for attempted murder on December 1, 2015. After
+an immunity hearing pursuant to the Protection of Persons and Property Act,1 the
+circuit court2 denied immunity and determined the issue of self-defense should be
+submitted to the jury.
+The trial took place April 5 through 6, 2016. At trial, Wallace testified that he did
+not like Petitioner and they had a history of prior incidents with each other.
+Wallace described a prior incident that involved him chasing Petitioner with an axe
+handle and breaking his windshield. Wallace testified that on the day of the
+stabbing, he was inside of McCormick's when Petitioner entered and began
+"running his mouth." As Petitioner walked by, Wallace grabbed him and slapped
+him, and they fell to the floor. Wallace testified that Hooks attempted to break up
+1 S.C. Code Ann. §§ 16-11-410 to -450 (2015).
+2 The Honorable Roger E. Henderson presided over the immunity hearing, but the
+Honorable Paul M. Burch was the trial judge.
+the fight but Petitioner "went to stabbing," nicking Hooks in the process. Wallace
+clarified that the stabbing did not begin while on the ground but began afterwards,
+when they stood up.
+Melissa Ann Griffin, the cashier at the time of the incident, testified that Wallace
+was already bleeding when Hooks stepped in and separated them, and she could
+not recall if Petitioner attempted to stab Wallace again after standing. She also
+testified that after exiting the store, Petitioner stated Wallace "got what he
+deserved." Mary Kay Deese, another employee of McCormick's present that day,
+testified that she heard a commotion and came around the counter to see Wallace
+bleeding on the floor as he stood up. She testified that she did not see Petitioner
+attempt to stab Wallace once they were separated and standing.
+Hooks testified he saw blood on the floor before he intervened. He further testified
+he did not see any stabbing and the fight was over once he pulled Petitioner off
+Wallace. Hooks was nicked at some point but did not know when that happened.
+James Timothy Perry, who at the time was an investigator with the Sheriff's Office,
+testified that the store's security video3 showed Petitioner continued making a
+thrusting motion after Hooks separated them and then blood became visible. Graig
+Cornelius Burns, another investigator with the Sheriff's Office, testified the video
+appeared to show Petitioner grabbing Wallace by the shirt and continuing to thrust
+after being pulled apart but clarified what Petitioner was holding was unclear.
+Investigator Burns also testified that Wallace's shirt had eight separate holes in it.
+After the close of evidence, the trial court charged the jury as follows:
+I am now going to instruct you as to the statutory law
+. . . . I charge you from Section 16-3-29 of the Code of
+Laws of 1976, as amended as to the charge of attempted
+murder. A person who with intent to kill, attempts to kill
+another person with malice aforethought either expressed
+or implied commenced the offense of attempted murder.
+What is malice? Malice is defined in the law of homicide
+as a term of art. Malice does not necessarily mean an
+actual intent to kill. It is a technical term importing
+3 The State played a recording of the store's security video at trial, but it was not
+submitted to the PCR court or provided in the Appendix.
+wickedness and excluding just cause or legal excuse. It
+is something which springs from wickedness, from
+depravity, from a depraved spirit, from a heart devoid on
+social duty, and fatally bent on mischief. The words
+express or inferred malice do not mean[] different kinds
+of malice but merely the manner in which the only kind
+of malice known to law may be shown to exist. Malice
+may be expressed as where previous threats of vengeance
+or lying [in] wait or other circumstances [show] directly
+that intent to kill was entertained. Malice may be
+inferred where though no express intent to kill is proved
+by direct evidence, it may be inferred from the facts and
+circumstances which are proved. Malice may be inferred
+from the willful, deliberate and intentional doing of an
+unlawful act without just cause [or] legal excuse.
+Now, as to the word, intent, let me discuss that with you.
+In order to establish criminal liability, criminal intent is
+required. For example, the mental state required to be
+proven by the State for a particular crime might be
+purpose[,] intent, knowledge, recklessness, or criminal
+negligence. . . . Criminal intent is a mental state, a
+conscious wrongdoing. It is up to you to determine what
+the defendant intended to do based on the circumstances
+shown to have existed. Criminal intent can arise from
+action or a failure to act. It may arise from negligence,
+recklessness, or indifferen[ce] to duty or to the
+consequences that is considered by the law to be the
+equivalent of criminal intent.
+(emphases added). After the jury exited the courtroom, trial counsel raised no
+objections to any charge given.
+Later, the jury submitted three questions to the trial court: "What is the attempted
+murder statute? What qualifies a person to be charged with attempted murder?
+What is the difference between premeditation [and] intent?" Trial counsel objected
+to the trial court's proposed answers, stating "I think they should go with the
+charges you gave to them, that goes with the offense." The trial court recharged
+the jury in response to its questions:
+What is the attempted murder statu[t]e? Section 16-3-29
+of the Code of Law, State of South Carolina, 1976, as
+amended, is entitled attempted murder. A person who
+with intent to kill attempts to kill another person with
+malice aforethought either expressed or implied
+commenced [sic] the offense of attempted murder.
+Elements of that offense as far as definition, the term
+malice aforethought. Malice aforethought is an essential
+element of this crime. What is malice? Malice is defined
+in the law of homicide as a term of art. Malice does not
+necessarily mean an actual intent to kill. It is a technical
+term importing wickedness and excluding just cause or
+legal excuse. It is something which springs from
+wickedness, from depravity, from a depraved spirit, from
+a heart devoid of social duty and fatally bent on mischief.
+The words express or inferred malice do not mean
+different kinds of malice but merely the manner in which
+the only kind of malice known to the law may be shown
+to exist.
+Now, to point out to you in that definition the word,
+inferred, means the same thing as implied which in the
+actual statu[t]e it uses the term, implied. That is to say
+either by direct evidence or by inference, malice may be
+expressed as where previous threats of vengeance or
+lying [in] wait or other circumstances show directly that
+an[] intent to kill was entertained. Malice may be
+inferred or implied where though no expressed intent to
+kill is proved by direct evidence. It may be inferred from
+the facts and circumstances which are proved. Malice
+may be inferred from the willful, deliberate, and
+intentional doing of an unlawful act without just cause or
+legal excuse. In other words, in its general signification
+malice means, the doing of a wrongful act intentionally
+without justification or legal excuse.
+All right. I apologize because the word aforethought is in
+the statu[t]e and I did not cover that in the original charge
+so let me speak with you about that. Aforethought.
+Aforethought is the time i[n] when evil is conceived.
+There is no particular length of time prior to the crime
+that may be concerned for malice to exist to be malice
+aforethought.
+Now, as to intent. Criminal intent is a state of mind that
+operates jointly with an act or admission in the
+commission of a crime. Criminal intent is a mental state
+of conscious wrongdoing. Intent includes those
+consequences which (a) represent the very purpose for
+which an act is done; or, (b) are known to be
+substantially certain to result regardless of desire.
+What is the difference between premeditation and intent?
+Well, I just defined intent for you. But nowhere in the
+statu[t]e does it mention premeditation but, I certainly do
+not mind giving you a standard definition of
+premeditated or premeditation since you inquired about
+the difference. Premeditation is defined as think out or
+plan. But once again that is not, that term is not in that
+statu[t]e.
+Now, as far as that second question, what qualifies a
+person to be charged with attempted murder? There is no
+way I can answer that.
+(emphasis added). Trial counsel's only objection regarded instructing the jury on
+the definition of premeditation. The jury found Petitioner guilty of attempted
+murder, and the trial court sentenced him to eighteen years' imprisonment.
+Petitioner filed an application for PCR alleging various grounds including he was
+denied effective assistance of counsel for trial counsel's failure to request specific
+intent instructions and failure to object to the trial court's jury instructions. At
+Petitioner's PCR hearing, trial counsel testified that in hindsight he could have
+objected to the trial court's jury instructions regarding intent and admitted his
+failure to object was not for any specific reason. The PCR court determined trial
+counsel was not ineffective for failure to request a specific intent instruction, nor
+ineffective for his failure to object to the court's general intent instruction, because
+State v. King4 had not yet been decided by the South Carolina Supreme Court.
+4 422 S.C. 47, 810 S.E.2d 18 (2017).
+Further, the PCR court held that even if trial counsel was deficient, the trial court's
+error was harmless—and thus non-prejudicial—because Petitioner conceded that
+he intended to stab Wallace. Petitioner made a Rule 59(e), SCRCP, motion to alter
+or amend the dismissal, which was denied. Petitioner filed a petition for a writ of
+certiorari on several grounds. This court granted the writ of certiorari on one
+ground, ineffective assistance of counsel as to the jury instructions.
+STANDARD OF REVIEW
+"Our standard of review in PCR cases depends on the specific issue before us. We
+defer to a PCR court's findings of fact and will uphold them if there is evidence in
+the record to support them." Smalls v. State, 422 S.C. 174, 180, 810 S.E.2d 836,
+839 (2018). "Questions of law are reviewed de novo, and we will reverse the PCR
+court's decision when it is controlled by an error of law." Sellner v. State, 416 S.C.
+606, 610, 787 S.E.2d 525, 527 (2016).
+LAW/ANALYSIS
+Petitioner contends the PCR court erred when it determined trial counsel was not
+ineffective. The trial court's instruction that "malice does not necessarily mean an
+actual intent to kill" almost immediately followed the reading of the statute's "with
+intent to kill" language. Petitioner argues these instructions were confusing, and
+the jury's questions to the trial court emphasized its confusion. Petitioner asserts
+trial counsel was deficient for failing to object to these instructions given this
+court's opinion in State v. King.5 Petitioner also argues this deficiency prejudiced
+him because testimony revealed he and Wallace were engaged in a struggle at the
+time of the stabbing, and thus a properly instructed jury would have more difficulty
+convicting Petitioner. We agree.
+"An ineffective assistance claim has two components: A petitioner must show that
+counsel's performance was deficient, and that the deficiency prejudiced the
+defense." Wiggins v. Smith, 539 U.S. 510, 521 (2003). "[T]he defendant must
+show that counsel's representation fell below an objective standard of
+reasonableness." Strickland v. Washington, 466 U.S. 668, 688 (1984). "Even if a
+defendant shows that particular errors of counsel are unreasonable . . . the
+defendant must show that they actually had an adverse effect on the defense. It is
+not enough for the defendant to show that the errors had some conceivable effect
+5 State v. King (King I), 412 S.C. 403, 410, 722 S.E.2d 189, 193 (Ct. App. 2015),
+aff'd as modified, 422 S.C. 47, 810 S.E.2d 18 (2017).
+on the outcome . . . ." Id. at 693. Essentially, the petitioner must show that "but
+for counsel's error, there is a reasonable probability the result of the proceedings
+would have been different." Boan v. State, 388 S.C. 272, 275-76, 695 S.E.2d 850,
+852 (2010). "[T]here is no reason for a court deciding an ineffective assistance
+claim to approach the inquiry in the same order or even to address both
+components of the inquiry if the defendant makes an insufficient showing on one."
+Strickland, 466 U.S. at 697.
+I. Deficiency
+"Generally, a trial court is required to charge only the current and correct law of
+South Carolina." State v. Lee-Grigg, 374 S.C. 388, 405, 649 S.E.2d 41, 50 (Ct.
+App. 2007). "The law to be charged to the jury is determined by the evidence
+presented at trial." Id.
+Section 16-3-29 of the South Carolina Code (2015) defines attempted murder: "A
+person who, with intent to kill, attempts to kill another person with malice
+aforethought, either expressed or implied . . . ." This court clarified that the statute
+requires the State to prove specific intent to kill in King I, 412 S.C. at 410, 722
+S.E.2d at 193.6 The supreme court affirmed that holding and expanded on this
+court's reasoning in 2017. State v. King (King II), 422 S.C. 47, 54-64, 810 S.E.2d
+18, 22-27 (2017), aff'g as modified, 412 S.C. 403, 722 S.E.2d 189.
+Thus, a conviction under the attempted murder statute requires the State to prove
+three elements: (1) malice, (2) specific intent to kill, and (3) action taken with the
+purpose of carrying out that intent. State v. Geter, 445 S.C. 139, 147-48, 912
+S.E.2d 255, 259 (2025). In an attempted murder case, "[T]he trial judge ha[s] an
+obligation to instruct the jury on specific intent. . . . Because 'with intent to kill' is
+not precise in what level of intent is required, . . . it could create confusion for the
+jury." State v. Perry, 440 S.C. 396, 407, 892 S.E.2d 273, 279 (2023).
+In the present case, the PCR court determined that trial counsel was not deficient
+because the supreme court's decision in King II had not been issued at the time of
+Petitioner's trial. The trial took place in April 2016, a year after this court's
+decision in King I, in April 2015, which King II later affirmed in 2017. After King
+6 Because Petitioner's trial took place a year after this court's decision in King I, we
+recognize that trial counsel and the trial court did not have the benefit of the
+supreme court's decision in King II and subsequent cases. However, at the time of
+trial, King I had held that attempted murder requires a specific intent to kill.
+I, the current and correct law of this state was that attempted murder was a specific
+intent crime.7 Thus, an error of law controlled the PCR court's determination that
+trial counsel was not deficient because the court failed to recognize King I's
+holding applied at the time of trial.
+Additionally, an attorney is expected to be aware of the currently applicable law in
+a client's case. See Hinton v. Alabama, 571 U.S. 263, 274 (2014) ("An attorney's
+ignorance of a point of law that is fundamental to his case combined with his
+failure to perform basic research on that point is a quintessential example of
+unreasonable performance under Strickland."). Trial counsel indicated at the PCR
+hearing that he did not have a specific reason for not objecting to either the omitted
+instruction on specific intent or the confusing malice charge. Trial counsel's
+misapprehension of the holding in King I rendered him unaware of an element of
+the offense with which Petitioner was charged. Further, trial counsel twice failed
+to object to the trial court's charge that "malice does not necessarily mean an intent
+to kill" and also failed to object to the trial court's instruction on general intent.
+Failing to object in the face of these instructions on a crime that requires the State
+to prove specific intent to kill, or to request instructions on that element, is
+deficient performance. See United States v. Freeman, 24 F.4th 320, 326-27, 329
+7 The State argues in its brief that no final decision on whether attempted murder
+required specific intent had been made because the supreme court granted the
+petition for writ of certiorari in King I a week before trial. However, this court's
+decision still bound lower courts unless or until the supreme court reversed King I's
+holding, and the current and correct law at the time of trial was that attempted
+murder required a specific intent to kill. See Hamby v. Hamby, 315 S.C. 518, 520,
+445 S.E.2d 656, 657 (Ct. App. 1994) (holding that a court of appeals decision was
+applicable in another action even though the supreme court had not yet affirmed
+that decision); Perry, 440 S.C. at 406-07, 406 n.11, 892 S.E.2d at 278 & n.11
+(citing the holding of King regarding specific intent to kill as binding on the trial
+court even though the relevant trial took place between the issuance of King I and
+King II); see also In re Kingsmore, 295 B.R. 812, 817 (Bankr. D.S.C. 2002) ("[A]
+decision by an intermediate appellate court in South Carolina is the law of South
+Carolina unless that decision is subsequently reversed or overruled."). Thus, even
+if trial counsel were aware of King I's holding, any belief that the general intent
+instruction was proper would have been in anticipation of a change in the law after
+the supreme court's review. However, an attorney is "never required to anticipate
+or discover changes in the law, or facts which did not exist, at the time of the trial."
+Thornes v. State, 310 S.C. 306, 309-10, 426 S.E.2d 764, 765 (1993).
+(4th Cir. 2022) (holding that waiver of a meritorious objection when "counsel was
+unequivocally wrong on the law" was deficient performance).
+Accordingly, the PCR court erred in not determining that trial counsel was
+deficient.
+II. Prejudice
+"Prejudice in ineffective assistance of counsel claims is typically analyzed using a
+harmless error framework." Carrier v. State, 441 S.C. 547, 558, 895 S.E.2d 679,
+685 (Ct. App. 2023).
+"When considering whether an error with respect to a jury instruction was
+harmless, we must determine beyond a reasonable doubt that the error complained
+of did not contribute to the verdict." Perry, 440 S.C. at 408, 892 S.E.2d at 279
+(quoting State v. Burdette, 427 S.C. 490, 496, 832 S.E.2d 575, 578 (2019)). "Jury
+instructions must be considered as a whole, and if, as a whole, they are reasonably
+free from error, isolated portions which might be misleading do not constitute
+reversible error." State v. Kerr, 330 S.C. 132, 144, 498 S.E.2d 212, 218 (Ct. App.
+1998). "[O]ur inquiry is not what the verdict would have been had the jury been
+given the correct charge, but whether the erroneous charge contributed to the
+verdict rendered." Id. at 145, 498 S.E.2d at 218. When a jury is recharged in
+response to an inquiry, an appellate court must infer the jury gave "critical
+attention" to the recharge. State v. Blassingame, 271 S.C. 44, 46-47, 244 S.E.2d
+528, 530 (1978).
+This court in King I held that an erroneous jury charge instructing that specific
+intent to kill was not an element of attempted murder was not harmless error
+because the evidence conflicted as to whether the defendant chased the victim or
+shot only once during a struggle. 412 S.C. at 417, 772 S.E.2d at 196. The court
+held that hearsay testimony from a law enforcement officer that the defendant fired
+three to four shots was erroneously admitted. Id. at 411-16, 772 S.E.2d at 193-96.
+Considering the evidence presented, the court explained:
+[The victim's] testimony that he repeatedly pushed King's
+gun away supports the inference that when King shot [the
+victim] in the cab, he did so in a struggle and did not
+intend to kill [the victim]. It is more difficult to imagine,
+however, that King could have chased [the victim] down
+Carlton Street while shooting at him unless he
+specifically intended to kill . . . .
+Therefore, we find [the officer's] inadmissible testimony
+as to the number of shots King fired affected the jury's
+verdict on attempted murder, and we cannot say that
+either the admission of the evidence or the erroneous jury
+charge are harmless beyond a reasonable doubt.
+Id. at 417, 772 S.E.2d at 196.8
+However, our supreme court in Perry affirmed a conviction for attempted murder
+even though the trial court recharged the jury on intent using general intent
+language referencing "motive" because clear corroborating evidence of specific
+intent rendered the erroneous charge harmless. 440 S.C. at 408, 892 S.E.2d at 279.
+In that case, the defendant was charged with attempted murder for firing a gun at a
+law enforcement officer while fleeing a traffic stop. Id. at 399-400, 892 S.E.2d at
+275. The evidence conflicted as to whether the defendant shot into the air or at the
+officer. Id. At trial—which also occurred between King I and King II—the jury
+requested a recharge on attempted murder and asked additional questions about
+malice and the definition of intent. Id. at 401-02, 402 n.5, 892 S.E.2d at 276 & n.5.
+In its answer, the trial court mentioned motive and did not clarify the meaning of
+specific intent. Id. at 407, 892 S.E.2d at 279. The supreme court held that
+mentioning motive confused general and specific intent and failing to be more
+precise in defining specific intent was error. Id. However, the court determined
+the error was harmless because eyewitness testimony that the defendant shot in the
+officer's direction was sufficient evidence of specific intent to prevent finding that
+the jury convicted based only on general intent. Id. at 408, 892 S.E.2d at 279.
+The supreme court in State v. Smith held that a jury charge on "felony attempted
+murder" was not harmless error because it removed the burden on the State to
+prove all the elements of attempted murder. 430 S.C. 226, 233, 845 S.E.2d 495,
+498 (2020) (per curiam). In that case, rival gang members approached the
+8 Although this court did not analyze the prejudicial effect of the erroneous charge
+alone, the supreme court in King II expanded on this court's specific intent analysis
+and concluded, "[W]e agree with the Court of Appeals that the trial judge erred in
+charging the jury that a specific intent to kill is not an element of attempted
+murder. Further, we agree that this error cannot be deemed harmless." King II,
+422 S.C. at 64, 810 S.E.2d at 27 (emphasis added).
+defendant, and they exchanged insults before the defendant fired at the group,
+missing them and hitting an uninvolved bystander. Id. at 230-31, 845 S.E.2d at
+497. The defendant was indicted for attempted murder and four gun charges. Id.
+at 231, 845 S.E.2d at 497. At trial, the defendant conceded guilt on two
+possession-related gun charges, and the State conceded that the evidence was
+sufficient to charge the jury on self-defense. Id. However, the State also requested
+the trial court instruct the jury that malice could be inferred when the attempted
+murder took place during the commission of a felony. Id. at 231-32, 845 S.E.2d at
+497. The trial court gave that instruction on implied malice, which the supreme
+court determined was erroneous. Id. at 232, 845 S.E.2d at 497-98. The supreme
+court held:
+Smith twice conceded guilt to the two felon-in-
+possession charges. By requesting the felony attempted-
+murder charge after Smith had already conceded guilt to
+the predicate felonies, the State essentially eliminated its
+own burden to prove all of the elements of attempted
+murder beyond a reasonable doubt, specifically that
+Smith acted with malice aforethought. For a
+constitutional error of this magnitude, "We need go no
+further than saying we cannot conclude the error was
+harmless beyond a reasonable doubt."
+Id. at 233, 845 S.E.2d at 498 (quoting State v. Belcher, 385 S.C. 597, 611, 685
+S.E.2d 802, 809 (2009)).
+The trial court in this case did not instruct the jury on specific intent but did
+instruct the jury on malice and general intent. The trial court specifically
+instructed that the defendant did not need to have an "actual intent to kill" to have
+malice in the original charge and also in response to the jury's questions. Further,
+the court read the statute and gave a general criminal intent instruction that
+included the statement that criminal intent "may arise from negligence,
+recklessness, or indifferen[ce] to duty or to the consequences that is considered by
+the law to be the equivalent of criminal intent." At the very least, these instructions
+confused general intent and the statute's "with intent to kill" element. Taken as a
+whole, the jury instructions describe general intent, and the jury had the option to
+convict Petitioner if it found he simply intended to stab defendant with reckless
+indifference as to the possibility it may have resulted in Wallace's death. Thus,
+similar to the implied malice instruction in Smith, the trial court's jury instructions
+essentially eliminated the State's burden to prove Petitioner had a specific intent to
+kill Wallace when he stabbed him.
+The State argues—and the PCR court determined—that Petitioner conceded he
+intended to stab Wallace, and the jury implicitly found his conduct was done with
+malice. Thus, the State asserts any error in jury instructions was harmless because
+the jury's verdict shows Petitioner intended to stab Wallace with malice and the
+specific intent to kill can be inferred.9 See State v. Sutton, 340 SC 393, 397 n.5,
+532 S.E.2d 283, 285 n.5 (2000) ("A specific intent to kill may be, and normally is,
+inferred from the surrounding circumstances, such as the character of the attack,
+the use of a deadly weapon, and the nature and extent of the victim's injuries."); see
+also State v. Taylor, 434 S.C. 365, 370, 862 S.E.2d 924, 927 (Ct. App. 2021)
+("[N]othing . . . prevents a jury from being charged that it can look at a defendant's
+actions and imply or infer from those actions that the defendant 'in fact' had the
+specific intent to kill.").
+However, attempted murder requires a higher level of mens rea than the malice
+aforethought the jury implicitly found, see King II, 422 S.C. at 56, 810 S.E.2d at 22
+("[I]t may seem counterintuitive for the attempt of a crime to require a higher level
+of mens rea than that of the completed crime . . . ."), and the evidence does not
+clearly indicate a specific intent to kill. Similar to the evidence of a struggle in
+King, Petitioner's entire case was predicated on the theory that he did not intend to
+kill Wallace when he stabbed him but acted in self-defense to "remove whatever
+9 We note that the PCR court in its order and the State at the PCR hearing and on
+appeal suggest specific intent to kill is satisfied as long as the act itself is
+intentional and not "committed out of recklessness or negligence." However, this
+position conflates two elements of attempted murder: (1) specific intent to kill and
+(2) action taken for the purpose of carrying out that intent. See Geter, 445 S.C. at
+147-48, 912 S.E.2d at 259 (noting these two elements and malice are the three
+elements of attempted murder). Petitioner's conceding he intended to stab Wallace
+is dispositive of the latter element only if the State satisfied its burden to prove
+Petitioner intended to kill Wallace when stabbing him. The State appears to argue
+any error was harmless because the implicit finding by the jury of a malicious,
+intentional act is equivalent to specific intent to kill. As previously explained, this
+construction would essentially eliminate the State's burden to prove the element of
+specific intent to kill. See King II, 422 S.C. at 56, 810 S.E.2d at 22-23 (noting
+specific intent to kill is a higher level of mens rea than malice). To the extent the
+State asserts specific intent to kill can be inferred here, as explained in the
+following analysis, we disagree.
+was happening to him and leave the store." The surrounding circumstances
+revealed at trial support this theory. Petitioner and Wallace had a history of
+violence and threats between them, Wallace initiated the altercation, Petitioner
+always carried his knife and did not bring it to the store for the purpose of fighting,
+and the evidence conflicted as to whether Petitioner stabbed Wallace after the fight
+separated. Although the jury was not convinced Petitioner's conduct satisfied the
+elements of self-defense, the jury could have found Petitioner stabbed Wallace
+intending to force Wallace to release him and not intending to cause death.
+This case is distinguishable from Perry—in which the supreme court found explicit
+evidence of specific intent rendered erroneous instructions harmless—because the
+question for the jury in that case was whether the shot fired was accidental or
+directed at the pursuing officer. In other words, the issue was largely a factual
+dispute and not differing theories about the mental state behind the stipulated
+actions of the defendant. Further, the trial court's instruction in Perry simply
+mentioned the irrelevant legal principle of motive—a term associated with general
+intent—whereas the court here instructed the jury on general intent only. In fact,
+the jury instruction here on malice directly conflicted with the element of specific
+intent when the jury was told twice that "malice does not necessarily mean an
+actual intent to kill." Thus, this case is closer to the situation in King in which
+conflicting evidence was presented as to whether the defendant fired his weapon
+during a struggle or while chasing the victim, and the element of specific intent to
+kill was directly contradicted in the jury instruction.
+Notably, the jury asked to be recharged on the attempted murder statute, asked
+what qualifies a person to be convicted of attempted murder, and asked for an
+explanation on the difference between premeditation and intent. Thus, the
+meaning of attempted murder and intent—and the statement "malice does not
+necessarily mean an actual intent to kill"—is presumed to have been given "critical
+attention" by the jury. See Blassingame, 271 S.C. at 46-47, 244 S.E.2d at 530.
+Given the only specific intent instruction the jury received was the reading of the
+statute, we cannot say beyond a reasonable doubt that the erroneous instructions
+did not contribute to the jury's verdict when the statute alone "does not clearly
+indicate what level of intent the Legislature meant to require." King I, 412 S.C. at
+408, 772 S.E.2d at 192.
+In sum, we cannot say beyond reasonable doubt that the omission of a specific
+intent charge did not contribute to the verdict. By failing to charge the jury on
+specific intent to kill, the State's burden of proof was eliminated for an element of
+attempted murder, and conflicting evidence prevents an inference of specific intent
+to kill. Thus, the error was not harmless, and we reverse the PCR court's
+determination that the Petitioner was not prejudiced by the erroneous jury
+instructions.
+CONCLUSION
+The PCR court erred in determining trial counsel's performance was not deficient
+as to the trial court's incorrect jury instructions on intent for the crime of attempted
+murder and in determining Petitioner was not prejudiced by that performance.
+Accordingly, we reverse the PCR court's denial of Petitioner's application for PCR
+due to ineffective assistance of counsel.
+REVERSED.
+THOMAS and CURTIS, JJ., concur.

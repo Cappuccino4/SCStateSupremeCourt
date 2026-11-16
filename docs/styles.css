@@ -1,0 +1,1159 @@
+/*
+  SC Advance Sheet Digest: site styles.
+  Plain CSS with no build step, no web fonts, and no external requests.
+  Colors were checked for WCAG AA contrast against the backgrounds they sit on.
+*/
+
+/* ---------- Tokens ---------- */
+
+:root {
+  --paper: #f8f5ee;          /* warm off-white page */
+  --paper-band: #f0eadf;     /* alternate section band */
+  --sheet: #fffdf9;          /* cards */
+  --email: #ffffff;          /* the sample email */
+  --email-chrome: #f8f6f1;   /* sample email header and footer strips */
+
+  --ink: #14233d;            /* deep navy text */
+  --ink-soft: #38445a;       /* secondary text */
+  --muted: #535c6d;          /* captions and fine print */
+
+  --rule: #d6cdbb;           /* hairlines on paper */
+  --rule-soft: #e7e1d5;      /* hairlines inside white surfaces */
+  --control-border: #6c7486; /* form field outline (3:1 or better) */
+
+  --navy: #13294b;           /* buttons, masthead */
+  --navy-deep: #0a1a33;
+  --accent: #8b2534;         /* oxblood: the single accent color */
+  --accent-tint: #f8ecea;
+
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "URW Palladio L", P052, "Book Antiqua", Georgia, serif;
+  --font-text: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  --gutter: clamp(16px, 4vw, 40px);
+  --max: 72rem;
+
+  color-scheme: light;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0 0 1em;
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  margin: 0;
+}
+
+a {
+  color: var(--ink);
+  text-decoration-line: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: var(--gutter);
+  z-index: 100;
+  padding: 0.65rem 1rem;
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-300%);
+}
+
+.skip-link:focus,
+.skip-link:hover {
+  color: #fff;
+  transform: none;
+}
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.kicker {
+  margin: 0 0 0.9rem;
+  color: var(--accent);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* A masthead-style double rule: a heavy line over a hairline. */
+.rule-double {
+  height: 6px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.75rem 1.4rem;
+  border: 1px solid var(--navy);
+  border-radius: 3px;
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--navy-deep);
+  background: var(--navy-deep);
+  color: #fff;
+}
+
+.button:disabled {
+  border-color: #a39c8c;
+  background: #e4dfd5;
+  color: #4b5262;
+  cursor: not-allowed;
+}
+
+.button-small {
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9375rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .button {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  padding-top: 0.25rem;
+}
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 2rem;
+  padding-block: 1rem 0.85rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--ink);
+}
+
+.brand img {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.35rem;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+}
+
+.site-nav a:not(.button) {
+  display: inline-block;
+  padding-block: 0.35rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.site-nav a:not(.button):hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+@media (max-width: 37.5rem) {
+  .site-nav ul {
+    gap: 0.1rem 1.1rem;
+    font-size: 0.9rem;
+  }
+
+  /* The signup form sits directly below the header on small screens. */
+  .nav-cta {
+    display: none;
+  }
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding-block: clamp(2rem, 7vw, 5.5rem) clamp(3.5rem, 8vw, 6.5rem);
+}
+
+/* Small screens: copy, then the signup card, then the highlights.
+   Wide screens: copy and highlights on the left, the card on the right. */
+.hero-grid {
+  display: grid;
+  grid-template-areas:
+    "copy"
+    "signup"
+    "points";
+  align-items: start;
+  gap: 2rem;
+}
+
+.hero-copy {
+  grid-area: copy;
+}
+
+.signup-card {
+  grid-area: signup;
+}
+
+.hero-points {
+  grid-area: points;
+}
+
+@media (min-width: 62rem) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "copy signup"
+      "points signup";
+    gap: 0 clamp(3rem, 6vw, 5.5rem);
+  }
+}
+
+.hero h1 {
+  font-size: clamp(2.35rem, 1.45rem + 3.6vw, 4.1rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.06;
+}
+
+.hero h1 em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.lede {
+  max-width: 36rem;
+  margin: 1.5rem 0 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.15rem, 1.02rem + 0.55vw, 1.375rem);
+  line-height: 1.5;
+}
+
+.hero-points {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+  max-width: 36rem;
+  margin: 0;
+  padding: 1.4rem 0 0;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  list-style: none;
+}
+
+@media (min-width: 62rem) {
+  .hero-points {
+    margin-top: 2.25rem;
+  }
+}
+
+.hero-points li {
+  display: grid;
+  grid-template-columns: 1.1rem minmax(0, 1fr);
+  gap: 0.45rem;
+}
+
+.hero-points li::before {
+  content: "\00a7";
+  content: "\00a7" / "";
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* ---------- Signup card ---------- */
+
+.signup-card {
+  width: 100%;
+  max-width: 30rem;
+  padding: clamp(1.25rem, 3.5vw, 2rem);
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--navy);
+  background: var(--sheet);
+  box-shadow: 0 1px 2px rgba(20, 35, 61, 0.05), 0 18px 40px -22px rgba(20, 35, 61, 0.35);
+  scroll-margin-top: 1rem;
+}
+
+@media (min-width: 62rem) {
+  .signup-card {
+    justify-self: end;
+    margin-top: 0.5rem;
+  }
+}
+
+.signup-title {
+  margin-bottom: 1.1rem;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.signup-form label {
+  display: block;
+  margin: 0 0 0.4rem;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.signup-form input[type="email"] {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  margin: 0;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--control-border);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.signup-form input[type="email"]::placeholder {
+  color: #646c7d;
+  opacity: 1;
+}
+
+.signup-form input[type="email"]:focus-visible {
+  border-color: var(--ink);
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.signup-form .button {
+  width: 100%;
+  margin-top: 0.85rem;
+}
+
+.signup-notice {
+  margin: 1rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--accent);
+  border-left-width: 4px;
+  background: var(--accent-tint);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.signup-terms {
+  margin: 1.1rem 0 0;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.signup-fineprint {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  padding-block: clamp(3.5rem, 8vw, 6.5rem);
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 0;
+}
+
+.band {
+  background-color: var(--paper-band);
+}
+
+.section-head {
+  max-width: 46rem;
+  margin-bottom: clamp(2rem, 5vw, 3.25rem);
+}
+
+.section-head h2 {
+  font-size: clamp(1.95rem, 1.45rem + 2vw, 2.85rem);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.section-intro {
+  max-width: 40rem;
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.2rem);
+}
+
+/* ---------- What you get ---------- */
+
+.format {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 3.5rem);
+  padding: 0;
+  list-style: none;
+}
+
+.format-part {
+  display: grid;
+  gap: 0.5rem 2.5rem;
+}
+
+.format-label {
+  padding-top: 0.9rem;
+  border-top: 2px solid var(--ink);
+}
+
+.format-label .kicker {
+  margin: 0;
+}
+
+.format-body h3 {
+  margin-bottom: 0.6rem;
+  font-size: clamp(1.45rem, 1.25rem + 0.8vw, 1.8rem);
+}
+
+.format-body > p {
+  max-width: 42rem;
+  color: var(--ink-soft);
+}
+
+@media (min-width: 52rem) {
+  .format-part {
+    grid-template-columns: 12rem minmax(0, 1fr);
+  }
+
+  .format-body {
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--rule);
+  }
+}
+
+.fields {
+  display: grid;
+  gap: 0 2rem;
+  margin: 1.75rem 0 0;
+}
+
+@media (min-width: 40rem) {
+  .fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 70rem) {
+  .fields {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.fields > div {
+  padding: 1.1rem 0 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+.fields dt {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.fields dd {
+  margin: 0.4rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+/* ---------- Sample digest ---------- */
+
+.sample-layout {
+  display: grid;
+  gap: 0;
+}
+
+/* The "In this issue" list only appears beside the sample on wide screens. */
+.sample-toc {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .sample-layout {
+    grid-template-columns: minmax(15rem, 1fr) minmax(0, 46rem);
+    gap: clamp(3rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  .sample-aside .section-head {
+    margin-bottom: 2.25rem;
+  }
+
+  .sample-toc {
+    display: block;
+    padding-top: 1rem;
+    border-top: 2px solid var(--ink);
+  }
+}
+
+/* Keep the heading and contents in view beside the long sample, when the window is tall enough. */
+@media (min-width: 64rem) and (min-height: 44rem) {
+  .sample-aside {
+    position: sticky;
+    top: 2rem;
+  }
+}
+
+.sample-toc ol {
+  padding: 0;
+  list-style: none;
+  counter-reset: toc;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+}
+
+.sample-toc li {
+  counter-increment: toc;
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr);
+  padding-block: 0.55rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.sample-toc li::before {
+  content: counter(toc);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.sample-toc a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.sample-toc a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.sample {
+  max-width: 46rem;
+  margin: 0;
+}
+
+.email-h,
+.email-footer {
+  scroll-margin-top: 1.5rem;
+}
+
+.sample-label {
+  margin: 0;
+  padding: 0.85rem clamp(1rem, 4vw, 1.5rem);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.sample-label strong {
+  letter-spacing: 0.01em;
+}
+
+.email {
+  border: 1px solid var(--rule);
+  border-top: 0;
+  background: var(--email);
+  box-shadow: 0 28px 60px -34px rgba(20, 35, 61, 0.5);
+}
+
+.email-meta {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 1rem clamp(1rem, 4.5vw, 2.5rem);
+  border-bottom: 1px solid var(--rule-soft);
+  background: var(--email-chrome);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.email-meta div {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  gap: 0.5rem;
+}
+
+.email-meta dt {
+  color: var(--muted);
+}
+
+.email-meta dd {
+  margin: 0;
+  color: var(--ink);
+}
+
+.email-subject {
+  font-weight: 600;
+}
+
+.email-body {
+  padding: clamp(1.25rem, 4.5vw, 2.5rem) clamp(1rem, 4.5vw, 2.5rem) clamp(1.5rem, 4.5vw, 2.5rem);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.email-masthead {
+  margin: 0 0 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.email-intro {
+  margin: 0;
+}
+
+.email-h {
+  margin: 2.25rem 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--ink);
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.rule-changes {
+  padding-left: 1.25rem;
+}
+
+.rule-changes li {
+  padding-left: 0.2rem;
+}
+
+.rule-changes li + li {
+  margin-top: 0.75rem;
+}
+
+.rule-changes li::marker {
+  color: var(--accent);
+}
+
+.change-label {
+  color: var(--accent);
+}
+
+.rule-note {
+  margin: 0.9rem 0 0;
+  color: var(--ink-soft);
+}
+
+.entry h4 {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.entry p {
+  margin: 0 0 0.85rem;
+}
+
+.entry .entry-meta {
+  margin-bottom: 1rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.entry-meta strong {
+  color: var(--ink);
+}
+
+.entry .entry-areas {
+  color: var(--ink-soft);
+}
+
+.entry .entry-links {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+.email-body hr {
+  height: 0;
+  margin: 1.75rem 0;
+  border: 0;
+  border-top: 1px solid var(--rule-soft);
+}
+
+/* Sample links look like links but go nowhere (the cases are fictional). */
+.mock-link {
+  color: var(--ink);
+  text-decoration-line: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.email-footer {
+  margin-top: 2.25rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--ink);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.email-footer p {
+  margin: 0 0 0.6rem;
+}
+
+.email-footer p:last-child {
+  margin-bottom: 0;
+}
+
+.email-footer .email-disclaimer {
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.email-unsub {
+  margin: 0;
+  padding: 0.9rem 1.25rem;
+  border-top: 1px solid var(--rule-soft);
+  background: var(--email-chrome);
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+.email-unsub .mock-link {
+  color: var(--muted);
+}
+
+.sample-note {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.cta-row {
+  max-width: 46rem;
+  margin: clamp(2.25rem, 5vw, 3rem) 0 0;
+  text-align: center;
+}
+
+/* ---------- How it works ---------- */
+
+.steps {
+  display: grid;
+  gap: 2.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 56rem) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+.step {
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--ink);
+}
+
+.step-number {
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.step h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.5rem;
+}
+
+.step p:last-child {
+  margin-bottom: 0;
+  color: var(--ink-soft);
+}
+
+.steps-note {
+  max-width: 48rem;
+  margin: clamp(2.25rem, 5vw, 3.25rem) 0 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 3px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+/* ---------- FAQ ---------- */
+
+/* Two balanced newspaper-style columns on wide screens; reading order runs down each column. */
+@media (min-width: 56rem) {
+  .faq {
+    column-count: 2;
+    column-gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+.faq-item {
+  padding: 1.5rem 0 1.65rem;
+  border-top: 1px solid var(--rule);
+  break-inside: avoid;
+}
+
+.faq-item h3 {
+  margin-bottom: 0.55rem;
+  font-size: 1.3rem;
+}
+
+.faq-item p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* ---------- Disclaimer ---------- */
+
+.disclaimer {
+  display: grid;
+  gap: 0 clamp(2.5rem, 5vw, 4.5rem);
+  padding: clamp(1.5rem, 4.5vw, 3rem);
+  border: 1px solid var(--ink);
+  border-top: 6px solid var(--accent);
+  background: var(--sheet);
+}
+
+@media (min-width: 60rem) {
+  .disclaimer {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    align-items: start;
+  }
+
+  .disclaimer-list {
+    margin-top: 0.35rem;
+  }
+}
+
+.disclaimer h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.4rem);
+}
+
+.disclaimer-lead {
+  margin: 0 0 1.4rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.05rem + 0.8vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.disclaimer-list {
+  padding-left: 1.25rem;
+  color: var(--ink-soft);
+}
+
+.disclaimer-list li + li {
+  margin-top: 0.6rem;
+}
+
+.disclaimer-list li::marker {
+  color: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding-block: 0 3rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.site-footer .rule-double {
+  margin-bottom: 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.25rem 3rem;
+}
+
+@media (min-width: 48rem) {
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  }
+}
+
+.site-footer p {
+  margin: 0 0 0.5rem;
+}
+
+.footer-brand {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.footer-links a {
+  font-weight: 600;
+}
+
+/* ---------- Windows high contrast and other forced-color modes ---------- */
+
+@media (forced-colors: active) {
+  .button,
+  .signup-card,
+  .signup-notice,
+  .sample-label,
+  .disclaimer {
+    border: 1px solid CanvasText;
+  }
+
+  .button:disabled {
+    border-color: GrayText;
+    color: GrayText;
+  }
+
+  .rule-double {
+    border-color: CanvasText;
+  }
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+  @page {
+    margin: 1.8cm;
+  }
+
+  :root {
+    --paper: #fff;
+    --paper-band: #fff;
+    --sheet: #fff;
+    --email-chrome: #fff;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  .skip-link,
+  .site-nav,
+  .signup-card,
+  .cta-row,
+  .sample-note {
+    display: none !important;
+  }
+
+  .hero,
+  .section {
+    padding-block: 1.25rem;
+  }
+
+  .hero-grid,
+  .sample-layout {
+    display: block;
+  }
+
+  .sample-aside {
+    position: static;
+  }
+
+  .sample-toc {
+    display: none !important;
+  }
+
+  .section {
+    border-top: 1px solid #999;
+  }
+
+  .sample-label {
+    border: 2px solid #000;
+    background: none;
+    color: #000;
+  }
+
+  .email {
+    border: 1px solid #999;
+    box-shadow: none;
+  }
+
+  .disclaimer {
+    border-color: #000;
+  }
+
+  a {
+    color: #000;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-family: var(--font-sans);
+    font-size: 0.8em;
+    overflow-wrap: anywhere;
+  }
+
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+  }
+
+  .entry,
+  .faq-item,
+  .step,
+  .format-part,
+  .fields > div,
+  .disclaimer {
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,7 @@
+# Keep LF line endings everywhere (the weekly job runs on Linux; this repo is also edited on Windows).
+* text=auto eol=lf
+
+# Binary files
+*.pdf binary
+*.png binary
+*.ico binary
