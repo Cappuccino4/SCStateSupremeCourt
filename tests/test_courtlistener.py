@@ -935,7 +935,7 @@ def test_fetch_api_mode_permanent_errors_point_to_an_api_change(status):
     message = str(excinfo.value)
     assert message == (
         f"CourtListener's API refused the search (HTTP {status}: Invalid parameter: filed_after). Its API may have "
-        "changed; see 'If a source changes its format' in the README."
+        "changed; see 'If a source changes its format' in OPERATING.md."
     )
     assert "temporarily" not in message and TOKEN not in message
 

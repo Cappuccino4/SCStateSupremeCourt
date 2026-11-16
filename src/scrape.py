@@ -30,7 +30,7 @@ NO_COURTS = (
 SCCOURTS_NEEDS_CONTACT = (
     "SOURCE=sccourts needs CONTACT_EMAIL: every request to sccourts.org must carry an email address its "
     "operators can use to reach you. Set the CONTACT_EMAIL Secret (or Variable); see 'Optional: "
-    "SOURCE=sccourts' in the README."
+    "SOURCE=sccourts' in OPERATING.md."
 )
 
 

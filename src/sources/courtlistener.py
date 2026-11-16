@@ -634,7 +634,7 @@ def _fetch_api(
         raise LayoutChangedError(
             f"CourtListener's search for published opinions returned {read} result(s), but none could be read as "
             f"a published South Carolina opinion ({'; '.join(reasons)}). CourtListener may have changed its API; "
-            "see 'If a source changes its format' in the README."
+            "see 'If a source changes its format' in OPERATING.md."
         )
     if malformed:
         warnings.append(
@@ -685,7 +685,7 @@ def _get_search_page(
             if params is not None:  # the first request, built from search_params()
                 raise SourceError(
                     f"CourtListener's API refused the search (HTTP {exc.status}{said}). Its API may have changed; "
-                    "see 'If a source changes its format' in the README."
+                    "see 'If a source changes its format' in OPERATING.md."
                 ) from exc
             raise SourceError(  # a "next page" link: its cursor may simply have expired
                 f"CourtListener refused the link to the next page of search results (HTTP {exc.status}{said}). "
@@ -724,7 +724,7 @@ def _fetch_feeds(session: PoliteSession, courts: list[Court], filed_after: date)
             raise LayoutChangedError(
                 f"CourtListener's {court.display_name} feed lists {page.entries} decision(s), but none is marked "
                 f"Published or Unpublished (categories seen: {seen}). CourtListener may have changed it; see "
-                "'If a source changes its format' in the README."
+                "'If a source changes its format' in OPERATING.md."
             )
         if page.uncategorized:
             warnings.append(
