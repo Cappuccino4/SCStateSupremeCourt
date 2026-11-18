@@ -720,12 +720,18 @@ class _Run:
         return sorted(candidates, key=pipeline_order)
 
     def _process(self, item: Item) -> SummaryResult | None:
-        """Text -> header -> prepare -> summarize. None when the item turns out to be already processed."""
+        """Text -> header -> prepare -> summarize.
+
+        None when the item turns out to be already processed, or when it is a feed-only copy
+        (``ahead_of_search``) whose PDF can't confirm what it is (see ``_defer``).
+        """
         missing_pages: list[int] = []
         if item.text is not None:
             text = item.text
             log.info("%s: using the text taken from the advance sheet (%s characters).", item.label, f"{len(text):,}")
         elif not item.pdf_url:
+            if item.ahead_of_search:
+                return self._defer(item, "it has no PDF yet")
             log.info("%s: there is no PDF to download, so it is listed without a summary.", item.label)
             self.seen_keys.add(item.key)
             return _failed(item, ERR_PDF_UNREADABLE)
@@ -734,6 +740,8 @@ class _Run:
             try:
                 extracted = extract_text(self.session.get_bytes(item.pdf_url))
             except (FetchError, ExtractionError) as exc:
+                if item.ahead_of_search:
+                    return self._defer(item, f"its PDF could not be read ({exc})")
                 log.warning("%s: could not read the opinion PDF (%s); it is listed without a summary.", item.label, exc)
                 self.seen_keys.add(item.key)
                 transient = isinstance(exc, FetchError) and (exc.status is None or exc.status >= 500)
@@ -746,6 +754,8 @@ class _Run:
         header = parse_opinion_header(text)
         if item.kind is ItemKind.ORDER:
             header = replace(header, opinion_number=None)  # orders have no opinion number; a cited one must not stick
+        if item.ahead_of_search and not (item.number or header.opinion_number):
+            return self._defer(item, "its PDF shows no opinion number to tell it apart from opinions already sent")
         if not self._apply_header(item, header):
             return None
         _write_text(self.out_dir / "texts" / _text_filename(item.key), text)
@@ -776,6 +786,23 @@ class _Run:
         self.report.request_items += 1
         assert self.summarizer is not None
         return self.summarizer.summarize(item, prepared, header)
+
+    def _defer(self, item: Item, why: str) -> None:
+        """Skip an opinion seen only in CourtListener's feeds whose identity can't be confirmed.
+
+        Such an item (``ahead_of_search``) may be a second copy of an opinion already emailed or
+        already in this run: CourtListener sometimes stores an opinion twice, or re-creates it
+        under a new ID, and only the opinion number in its PDF tells. So it is neither listed nor
+        recorded; a later run finds it again, through the search once it is indexed.
+        """
+        log.info(
+            "%s: listed in CourtListener's feeds before its search had it, but %s, so it is left for a later run "
+            "(not emailed, not recorded).",
+            item.label,
+            why,
+        )
+        self.report.new -= 1
+        return None
 
     def _apply_header(self, item: Item, header: OpinionHeader) -> bool:
         """Fill the item's number, author, and disposition from its PDF header. False to skip the item."""

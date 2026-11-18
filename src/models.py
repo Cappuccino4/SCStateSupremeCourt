@@ -68,6 +68,10 @@ class Item:
     advance_sheet: int | None = None  # advance sheet number, when known
     text: str | None = None  # pre-extracted text (orders sliced from an advance sheet); None -> download pdf_url
     refiled: bool = False  # withdrawn, substituted, and refiled opinion
+    # Listed in CourtListener's public feeds before its search had indexed it (API mode). Its
+    # identity is confirmed only by the opinion number in its PDF, so the pipeline uses it only
+    # when that PDF can be read; otherwise it waits for a later run (src/main.py _process).
+    ahead_of_search: bool = False
     # Other identities of the same item, e.g. an order's date-and-title key, which stays the
     # same whether or not the order was matched to the All Court Orders page.
     extra_keys: tuple[str, ...] = ()

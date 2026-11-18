@@ -1141,9 +1141,127 @@ def test_fetch_api_mode_filed_after_is_inclusive():
 @pytest.mark.parametrize("token", [TOKEN, None])
 def test_fetch_with_no_courts_makes_no_requests(token):
     with responses.RequestsMock() as rsps:  # nothing registered: any request would fail
-        result = cl.fetch(_session(), [], FILED_AFTER, token)
+        result = cl.fetch(_session(), [], FILED_AFTER, token, check_feeds=True)
         assert len(rsps.calls) == 0
     assert result.items == []
+
+
+# ---------------------------------------------------------------------------
+# fetch: API mode with check_feeds (opinions the search has not indexed yet)
+# ---------------------------------------------------------------------------
+
+NEW_DAY = "2026-11-18T00:00:00-08:00"
+
+
+def _header(court: str, number: str) -> str:
+    """A feed summary (escaped HTML) whose text gives the opinion number."""
+    return f"&lt;p&gt;THE STATE OF SOUTH CAROLINA In The {court} Opinion No. {number} Filed November 18, 2026&lt;/p&gt;"
+
+
+def test_check_feeds_adds_published_opinions_the_search_has_not_indexed(caplog):
+    # November 18, 2026: the feeds listed the day's opinions an hour before the search returned them,
+    # and CourtListener had briefly stored some of them more than once.
+    caplog.set_level(logging.INFO, logger=LOGGER)
+    sc_feed = _atom(
+        _entry("11065476", title="Tonya Winbush v. City of Anderson", published=NEW_DAY,
+               summary=_header("Supreme Court", "28356"), enclosure=STORAGE + "winbush.pdf"),  # new: added
+        _entry("11065473", title="Paul David Hess v. Morphis Pediatric Group", published=NEW_DAY,
+               summary="&lt;p&gt;THE STATE OF SOUTH CAROLINA In The Supreme Court Paul David Hess&lt;/p&gt;",
+               enclosure=STORAGE + "hess.pdf"),  # new, no number in the excerpt: added (its PDF gives the number)
+        _entry("11060100", title="Reid Fleming v. LG Chem Ltd.",
+               summary="&lt;p&gt;no number in this excerpt&lt;/p&gt;"),  # a search result's cluster: not added
+        _entry("11065477", title="In the Matter of Louis David Nettles",
+               summary=_header("Supreme Court", "28354")),  # a search result's number, another cluster: not added
+        _entry("11065490", title="Unpublished v. Case", published=NEW_DAY, category="Unpublished"),  # not added
+        _entry("11040000", title="Old v. Case", published="2026-10-28T00:00:00-08:00",
+               summary=_header("Supreme Court", "28339")),  # filed before the window: not added
+    )  # fmt: skip
+    coa_feed = _atom(
+        _entry("11060103", title="Gary Moore v. State",
+               summary=_header("Court of Appeals", "6170")),  # the unnumbered search result CL:11060103: not added
+        _entry("11065478", title="State v. Phillip Ronald Miller", published=NEW_DAY,
+               summary=_header("Court of Appeals", "6171"), enclosure=STORAGE + "miller.pdf"),  # new: added
+        _entry("11065479", title="State v. Phillip Ronald Miller", published=NEW_DAY,
+               summary=_header("Court of Appeals", "6171"), enclosure=STORAGE + "miller_1.pdf"),  # a 2nd copy: once
+    )  # fmt: skip
+    with responses.RequestsMock() as rsps:
+        _add_api_page(rsps, fixture_json(SAMPLE))
+        rsps.get(SC_FEED_URL, body=sc_feed, content_type=ATOM_TYPE)
+        rsps.get(COA_FEED_URL, body=coa_feed, content_type=ATOM_TYPE)
+        result = cl.fetch(_session(), BOTH, FILED_AFTER, TOKEN, check_feeds=True)
+        calls = list(rsps.calls)
+    assert [item.key for item in result.items] == [
+        "SC:28354", "SC:28355", "SC:28356", "CL:11065473", "CL:11060103", "COA:6171",
+    ]  # fmt: skip
+    assert result.source == "courtlistener-api" and result.warnings == []
+    added = [item for item in result.items if item.source == cl.SOURCE_FEED]
+    assert [item.case_name for item in added] == [
+        "Tonya Winbush v. City of Anderson", "Paul David Hess v. Morphis Pediatric Group", "State v. Phillip Ronald Miller",
+    ]  # fmt: skip
+    assert [item.pdf_url for item in added] == [STORAGE + "winbush.pdf", STORAGE + "hess.pdf", STORAGE + "miller.pdf"]
+    # Feed-only items are marked, so the pipeline uses them only if their PDF confirms what they are.
+    assert [item.ahead_of_search for item in result.items] == [False, False, True, True, False, True]
+    # The search first, then each feed; the token goes only to the search.
+    assert [urlsplit(c.request.url).path for c in calls] == ["/api/rest/v4/search/", "/feed/court/sc/", "/feed/court/scctapp/"]
+    assert calls[0].request.headers["Authorization"] == f"Token {TOKEN}"
+    assert not [c for c in calls[1:] if "Authorization" in c.request.headers]
+    messages = [r.getMessage() for r in caplog.records if r.name == LOGGER]
+    assert any(m.startswith("3 published opinion(s) are in CourtListener's public feeds but not yet") for m in messages)
+    assert any("API search, plus 3 from the public feeds" in m for m in messages)
+    assert _warnings(caplog) == []
+
+
+def test_check_feeds_adds_nothing_when_the_search_is_current(caplog):
+    # The saved feeds list the same published opinions as the saved search page.
+    caplog.set_level(logging.INFO, logger=LOGGER)
+    with responses.RequestsMock() as rsps:
+        _add_api_page(rsps, fixture_json(SAMPLE))
+        _add_feeds(rsps)
+        result = cl.fetch(_session(), BOTH, FILED_AFTER, TOKEN, check_feeds=True)
+        assert len(rsps.calls) == 3
+    assert [item.key for item in result.items] == ["SC:28354", "SC:28355", "CL:11060103"]
+    assert result.warnings == [] and _warnings(caplog) == []
+    assert not any("not yet in its search results" in r.getMessage() for r in caplog.records)
+
+
+@pytest.mark.parametrize("problem", ["server error", "connection error", "not a feed"])
+def test_check_feeds_problems_never_stop_the_run(problem, caplog):
+    with responses.RequestsMock() as rsps:
+        _add_api_page(rsps, fixture_json(SAMPLE))
+        if problem == "server error":
+            rsps.get(SC_FEED_URL, status=503)
+        elif problem == "connection error":
+            rsps.get(SC_FEED_URL, body=requests.ConnectionError("connection reset"))
+        else:
+            rsps.get(SC_FEED_URL, body="<html><body>Service Unavailable</body></html>", content_type="text/html")
+        _add_feeds(rsps, sc=False)
+        result = cl.fetch(_session(), BOTH, FILED_AFTER, TOKEN, check_feeds=True)
+    # The search results are used as they are, and the run is not marked as having a problem.
+    assert [item.key for item in result.items] == ["SC:28354", "SC:28355", "CL:11060103"]
+    assert result.warnings == []
+    logged = [r.getMessage() for r in _warnings(caplog)]
+    assert len(logged) == 1
+    assert logged[0].startswith("Could not check CourtListener's public Supreme Court feed")
+    assert "uses the search results alone" in logged[0] and TOKEN not in logged[0]
+
+
+def test_check_feeds_reads_only_the_enabled_courts_feed():
+    with responses.RequestsMock() as rsps:  # no Court of Appeals feed registered: reading it would fail
+        _add_api_page(rsps, _page(_sample_result(0)), courts=[Court.SUPREME])
+        rsps.get(SC_FEED_URL, body=fixture_bytes(SC_FEED_FILE), content_type=ATOM_TYPE)
+        result = cl.fetch(_session(), [Court.SUPREME], FILED_AFTER, TOKEN, check_feeds=True)
+        assert [urlsplit(c.request.url).path for c in rsps.calls] == ["/api/rest/v4/search/", "/feed/court/sc/"]
+    # This search page has only Nettles; the feed also lists Fleming, so the feed supplies it.
+    assert [item.case_name for item in result.items] == ["In the Matter of Louis David Nettles", "Reid Fleming v. LG Chem Ltd."]
+    assert [item.source for item in result.items] == [cl.SOURCE_API, cl.SOURCE_FEED]
+
+
+def test_check_feeds_changes_nothing_without_a_token():
+    with responses.RequestsMock() as rsps:
+        _add_feeds(rsps)
+        result = cl.fetch(_session(), BOTH, FILED_AFTER, None, check_feeds=True)
+        assert len(rsps.calls) == 2  # each feed once
+    assert result.source == "courtlistener-feed" and result.warnings[0] == SPEC_NO_TOKEN_WARNING
 
 
 # ---------------------------------------------------------------------------

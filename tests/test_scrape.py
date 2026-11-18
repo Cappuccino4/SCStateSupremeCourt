@@ -97,7 +97,8 @@ def test_courtlistener_dispatch_passes_the_window_courts_and_token(cl_fetch):
     s = session()
     settings = Settings(lookback_days=10, courtlistener_api_token="tok", include_orders=False)
     result = scrape.find_items(settings, s, TODAY)
-    assert recorder.calls == [((s, [Court.SUPREME, Court.APPEALS], date(2026, 11, 6), "tok"), {})]
+    # check_feeds: the public feeds catch opinions CourtListener's search has not indexed yet.
+    assert recorder.calls == [((s, [Court.SUPREME, Court.APPEALS], date(2026, 11, 6), "tok"), {"check_feeds": True})]
     assert result.source == "courtlistener-api" and result.items == []
 
 

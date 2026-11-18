@@ -880,16 +880,23 @@ def test_item_recognized_by_its_pdf_header_is_not_summarized_again(caplog, web, 
     assert counts["already_processed"] == 1 and counts["new"] == 2
 
 
-def test_courtlistener_api_mode_end_to_end(monkeypatch, web, keys):
+def test_courtlistener_api_mode_end_to_end(monkeypatch, web, keys, caplog):
     monkeypatch.setenv("COURTLISTENER_API_TOKEN", "cl-test-token")
     web.get(courtlistener.API_SEARCH_URL, json=fixture_json("courtlistener/search_v4_sample.json"))
     buttondown(web)
     client = FakeAnthropic()
+    caplog.set_level(logging.INFO)
     assert run(svc=services(client)) == EXIT_OK
     search = [c for c in web.calls if c.request.url.startswith(courtlistener.API_SEARCH_URL)]
     assert len(search) == 1 and search[0].request.headers["Authorization"] == "Token cl-test-token"
     assert "filed_after=2026-11-06" in search[0].request.url
-    assert not [c for c in web.calls if "/feed/" in c.request.url]
+    # The public feeds are checked too, for opinions the search has not indexed yet, and never get the token.
+    feeds = [c for c in web.calls if "/feed/" in c.request.url]
+    assert [c.request.url for c in feeds] == [SC_FEED, COA_FEED]
+    assert not [c for c in feeds if "Authorization" in c.request.headers]
+    # They list the same three opinions as the search, so nothing is added and nothing is summarized twice.
+    assert not any("not yet in its search results" in m for m in messages(caplog, logging.INFO))
+    assert sorted(client.calls) == sorted([NETTLES, FLEMING, MOORE])
     state = read_state()
     # Moore had no number in the API result; its PDF header supplied 6170.
     assert set(state["items"]) == {"SC:28354", "SC:28355", "COA:6170"}
@@ -898,6 +905,61 @@ def test_courtlistener_api_mode_end_to_end(monkeypatch, web, keys):
     assert "https://www.sccourts.org/media/opinions/HTMLFiles/COA/6170%20.pdf" in md  # readers get the court's PDF
     assert "CourtListener copy" in md
     assert not [u for u in pdf_downloads(web) if "sccourts.org" in u]  # but the job never downloads from it
+
+
+# November 18, 2026: CourtListener's search index lagged behind its feeds, and it re-created last
+# week's (already emailed) Fleming under a new cluster whose feed excerpt shows no opinion number.
+RECREATED_FLEMING_PDF = "https://storage.courtlistener.com/pdf/2026/11/12/reid_fleming_v._lg_chem_ltd._1.pdf"
+
+
+def _stale_search_and_recreated_fleming(web, monkeypatch, pdf_status: int) -> None:
+    """The search returns only Nettles and Moore; the SC feed lists Fleming as cluster 11065477."""
+    monkeypatch.setenv("COURTLISTENER_API_TOKEN", "cl-test-token")
+    sample = fixture_json("courtlistener/search_v4_sample.json")
+    sample["results"] = [r for r in sample["results"] if r["cluster_id"] in (11060101, 11060103)]
+    web.get(courtlistener.API_SEARCH_URL, json=sample)
+    feed = fixture_bytes("courtlistener/feed_sc.xml").replace(b"11060100", b"11065477")
+    feed = feed.replace(FLEMING_PDF.encode(), RECREATED_FLEMING_PDF.encode())
+    web.replace(responses.GET, SC_FEED, body=feed, content_type="application/atom+xml; charset=utf-8")
+    web.get(RECREATED_FLEMING_PDF, status=pdf_status)
+
+
+@pytest.mark.parametrize("pdf_status", [404, 503])
+def test_feed_copy_of_an_emailed_opinion_with_an_unreadable_pdf_is_not_emailed_again(
+    monkeypatch, web, keys, caplog, pdf_status
+):
+    seed_state({"SC:28355": summarized(FLEMING)}, aliases={"CL:11060100": "SC:28355"})
+    _stale_search_and_recreated_fleming(web, monkeypatch, pdf_status)
+    buttondown(web)
+    client = FakeAnthropic()
+    assert run(svc=services(client)) == EXIT_OK
+    assert client.calls == [NETTLES, MOORE]
+    assert RECREATED_FLEMING_PDF in pdf_downloads(web)  # the feed's copy was tried...
+    subject = json.loads(calls_to(web, "POST", EMAILS_URL)[0].request.body)["subject"]
+    assert subject.endswith("— 2 opinions")
+    md = Path("output/digest.md").read_text(encoding="utf-8")
+    assert FLEMING not in md  # ...but, unconfirmed, it is not listed again
+    state = read_state()
+    assert "CL:11065477" not in state["items"] and "CL:11065477" not in state["aliases"]
+    assert set(state["items"]) == {"SC:28354", "SC:28355", "COA:6170"}
+    assert any("left for a later run" in m and FLEMING in m for m in messages(caplog, logging.INFO))
+
+
+def test_an_unconfirmed_feed_copy_alone_ends_the_run_quietly(monkeypatch, web, keys, caplog, tmp_path):
+    # Everything the search returns is already recorded; the only "new" item is the feed's copy of
+    # Fleming, and its PDF can't be read: no email, no failed attempt recorded, exit 0 (not 1).
+    seed_state(
+        {"SC:28354": summarized(NETTLES), "SC:28355": summarized(FLEMING), "COA:6170": summarized(MOORE, court="COA")},
+        aliases={"CL:11060101": "SC:28354", "CL:11060100": "SC:28355", "CL:11060103": "COA:6170"},
+    )
+    before = Path("data/processed.json").read_text(encoding="utf-8")
+    _stale_search_and_recreated_fleming(web, monkeypatch, 404)
+    client = FakeAnthropic()
+    assert run(svc=services(client)) == EXIT_OK
+    assert client.calls == [] and not buttondown_calls(web)
+    assert Path("data/processed.json").read_text(encoding="utf-8") == before
+    assert output_dict(tmp_path).get("has_new") == "false"
+    assert read_json("output/run_summary.json")["result"] == NOTHING_NEW
 
 
 def test_sccourts_source_with_orders_end_to_end(caplog, monkeypatch):

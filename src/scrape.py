@@ -86,7 +86,9 @@ def find_items(settings: Settings, session: PoliteSession, today: date) -> Scrap
             log.warning("%s", NO_COURTS)
             token = (settings.courtlistener_api_token or "").strip()
             return ScrapeResult(items=[], source=courtlistener.SOURCE_API if token else courtlistener.SOURCE_FEED)
-        result = courtlistener.fetch(session, courts, filed_after, settings.courtlistener_api_token)
+        result = courtlistener.fetch(
+            session, courts, filed_after, settings.courtlistener_api_token, check_feeds=True
+        )
     else:
         raise ConfigError(f"SOURCE must be courtlistener or sccourts (got {settings.source!r})")
 

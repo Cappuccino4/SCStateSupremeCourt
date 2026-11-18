@@ -30,8 +30,9 @@ SC Advance Sheet Digest is a free weekly email that summarizes every newly publi
  GitHub Actions schedule (hourly on Wed + Thu, Eastern), or "Run workflow" by hand
      |
      v
- 1. Find new opinions .... CourtListener: API search with your token, or the public
-     |                     feeds without one. Skip anything in data/processed.json
+ 1. Find new opinions .... CourtListener: API search with your token (plus the public
+     |                     feeds, which list new opinions first), or the public feeds
+     |                     without one. Skip anything in data/processed.json
      v
  2. Get the text ......... download each opinion PDF, extract its text,
      |                     shorten very long opinions
@@ -73,10 +74,12 @@ The court's own website, sccourts.org, has a `robots.txt` file that asks automat
 
 | | Without a token: public feeds | With a free token: search API |
 |---|---|---|
-| What the job reads | Each court's CourtListener feed, which lists only its 20 newest decisions, published and unpublished together | Every published opinion filed in the lookback window |
+| What the job reads | Each court's CourtListener feed, which lists only its 20 newest decisions, published and unpublished together | Every published opinion filed in the lookback window, plus the two public feeds (see below) |
 | In a busy week | Opinions can drop off a feed before the job sees them. The log warns when a feed doesn't reach back far enough | Complete |
-| Reader links | CourtListener's copy of the PDF | The court's own PDF, plus CourtListener's copy |
+| Reader links | CourtListener's copy of the PDF | The court's own PDF, plus CourtListener's copy (only CourtListener's copy for an opinion picked up from the feeds before the search had it) |
 | Log | A warning on every run that no token is set | No warning |
+
+**Why a run with a token also reads the feeds.** CourtListener's search index can lag behind the opinions it has already posted. On November 18, 2026 its feeds listed that day's opinions from 12:20 PM Eastern, but the 1:23 PM run's search still returned none of them. So each run with a token also reads the two public feeds (two small requests, made without the token) and adds any published opinion they list that the search didn't return; the log says "... are in CourtListener's public feeds but not yet in its search results". A feed listing an opinion the search already returned is recognized by its cluster or opinion number. CourtListener sometimes stores an opinion twice or re-creates it under a new ID, and such a copy is recognized when its PDF's opinion number is read. So an opinion picked up from the feeds is used only if its PDF can be read and shows an opinion number; otherwise it is left for a later run, neither emailed nor recorded, and the search returns it once it is indexed. Its email links to CourtListener's copy of the PDF, because the feeds don't give the court's own address. If a feed can't be read, the run logs a warning and goes on with the search results.
 
 You get the token in [step 6](#6-get-a-courtlistener-api-token). It is sent only to CourtListener's API, usually in one search request per run; the PDFs come from CourtListener's public file storage. The free account limits (5 requests a minute, 50 an hour, 125 a day, as of May 2026) are far more than the job needs. If CourtListener hasn't stored an opinion's PDF yet, the opinion is listed with a link and tried again on the next run (in at most `MAX_ATTEMPTS_PER_ITEM` runs in all, as for any failed summary).
 

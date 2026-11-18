@@ -6,6 +6,12 @@ API for every published opinion filed in the lookback window. Without a token it
 CourtListener's public Atom feeds instead, which list only the 20 newest decisions per
 court (published and unpublished), so a busy week can push opinions out of a feed.
 
+The search index can lag behind the opinions CourtListener has already posted (on
+November 18, 2026 the feeds listed that day's opinions from 12:20 PM Eastern, and the
+search still returned none of them at 1:23 PM). So with a token and ``check_feeds``, the
+feeds are read as well, and a published opinion they list that the search did not return
+is added (see ``_unindexed_from_feeds``).
+
 This source never contacts sccourts.org. ``Item.pdf_url`` (the file the pipeline
 downloads) is CourtListener's stored copy of the PDF; the court's own URL is used only
 as ``Item.link_url``, the link readers click in the email.
@@ -50,6 +56,7 @@ NO_TOKEN_WARNING = (
     "can push opinions out of a feed; add a free CourtListener API token for complete results."
 )
 
+_FEED_ACCEPT = "application/atom+xml, application/xml;q=0.9, */*;q=0.5"
 ATOM_NS = "http://www.w3.org/2005/Atom"
 _NS = {"atom": ATOM_NS}
 _COURT_BY_ID: dict[str, Court] = {court_id: court for court, court_id in COURT_IDS.items()}
@@ -520,23 +527,37 @@ def _entry_links(entry: ET.Element) -> tuple[str | None, str | None]:
 # ---------------------------------------------------------------------------
 
 
-def fetch(session: PoliteSession, courts: list[Court], filed_after: date, token: str | None) -> ScrapeResult:
+def fetch(
+    session: PoliteSession,
+    courts: list[Court],
+    filed_after: date,
+    token: str | None,
+    *,
+    check_feeds: bool = False,
+) -> ScrapeResult:
     """Published opinions of ``courts`` filed on or after ``filed_after``.
 
-    With ``token``: CourtListener's v4 Search API (complete results). Without one: the
-    public Atom feeds (20 newest decisions per court; ``warnings`` explains the limits).
+    With ``token``: CourtListener's v4 Search API (complete results), plus, when
+    ``check_feeds`` is true, any published opinion the public feeds list that the search did
+    not return yet (its index can lag behind; see the module docstring). Without a token:
+    the public Atom feeds (20 newest decisions per court; ``warnings`` explains the limits).
     Items are deduplicated by key and sorted Supreme Court first, then by filing date and
     opinion number. Every warning in the result is also logged here. Raises SourceError
-    (or its subclass LayoutChangedError) when CourtListener cannot be read.
+    (or its subclass LayoutChangedError) when CourtListener cannot be read; a feed that
+    cannot be read during ``check_feeds`` is only logged, and the search results are used.
     """
     wanted = _unique_courts(courts)
     token = (token or "").strip()
     if token[:6].lower() == "token ":  # tolerate a secret saved with the header's "Token " prefix
         token = token[6:].strip()
     token = token or None
+    unindexed: list[Item] = []
     if token:
         source = SOURCE_API
         found, warnings = _fetch_api(session, wanted, filed_after, token) if wanted else ([], [])
+        if check_feeds and wanted:
+            unindexed = _unindexed_from_feeds(session, wanted, filed_after, found)
+            found = found + unindexed
     else:
         source = SOURCE_FEED
         found, warnings = _fetch_feeds(session, wanted, filed_after)
@@ -551,9 +572,13 @@ def fetch(session: PoliteSession, courts: list[Court], filed_after: date, token:
     per_court = ", ".join(
         f"{sum(1 for item in items if item.court is court)} {court.display_name}" for court in wanted
     )
+    if source == SOURCE_FEED:
+        how = "public feeds"
+    else:
+        how = "API search" + (f", plus {len(unindexed)} from the public feeds" if unindexed else "")
     log.info(
         "CourtListener (%s): %d published opinion(s) filed on or after %s%s.",
-        "API search" if source == SOURCE_API else "public feeds",
+        how,
         len(items),
         _fmt_date(filed_after),
         f" ({per_court})" if per_court else "",
@@ -715,7 +740,7 @@ def _fetch_feeds(session: PoliteSession, courts: list[Court], filed_after: date)
         url = FEED_URL.format(court_id=COURT_IDS[court])
         log.info("Reading CourtListener's public %s feed.", court.display_name)
         try:
-            body = session.get_bytes(url, headers={"Accept": "application/atom+xml, application/xml;q=0.9, */*;q=0.5"})
+            body = session.get_bytes(url, headers={"Accept": _FEED_ACCEPT})
         except FetchError as exc:
             raise SourceError(f"Could not read CourtListener's public {court.display_name} feed: {exc}") from exc
         page = _read_feed(body, court)
@@ -769,6 +794,62 @@ def _fetch_feeds(session: PoliteSession, courts: list[Court], filed_after: date)
                 )
             )
     return items, warnings
+
+
+def _unindexed_from_feeds(
+    session: PoliteSession, courts: list[Court], filed_after: date, indexed: list[Item]
+) -> list[Item]:
+    """Published opinions the public feeds list that the API search did not return.
+
+    CourtListener's search index can lag behind the opinions it has already posted, and the
+    feeds show new opinions first. An opinion counts as already found when a search result
+    has the same CourtListener cluster, or the same court and opinion number. A copy that
+    matches neither (one CourtListener stored twice, or re-created under a new cluster, with
+    no opinion number in the feed's excerpt) is caught later: the pipeline reads each PDF's
+    opinion number before summarizing and skips duplicates. Every returned item is marked
+    ``ahead_of_search``, so the pipeline skips it, unrecorded, when its PDF cannot be read
+    (src/main.py ``_process``). Only opinions filed on or after ``filed_after`` are returned.
+
+    The feeds are read without the API token. A feed that cannot be read is logged as a
+    warning and skipped, so the search results are still used; this never raises.
+    """
+    known_clusters = {item.source_id for item in indexed if item.source_id}
+    known_numbers = {(item.court, item.number) for item in indexed if item.number}
+    seen: set[str] = set()
+    extra: list[Item] = []
+    for court in courts:
+        url = FEED_URL.format(court_id=COURT_IDS[court])
+        log.info(
+            "Checking CourtListener's public %s feed for opinions its search has not indexed yet.", court.display_name
+        )
+        try:
+            page = _read_feed(session.get_bytes(url, headers={"Accept": _FEED_ACCEPT}), court)
+        except (FetchError, SourceError) as exc:
+            log.warning(
+                "Could not check CourtListener's public %s feed for opinions its search has not indexed yet (%s). "
+                "This run uses the search results alone; an opinion missing from them is picked up by a later run.",
+                court.display_name,
+                exc,
+            )
+            continue
+        for item in page.items:
+            if item.filed_date < filed_after or item.key in seen:
+                continue
+            if (item.source_id and item.source_id in known_clusters) or (
+                item.number and (item.court, item.number) in known_numbers
+            ):
+                continue
+            seen.add(item.key)
+            item.ahead_of_search = True  # used only if its PDF confirms what it is (src/main.py)
+            extra.append(item)
+    if extra:
+        log.info(
+            "%d published opinion(s) are in CourtListener's public feeds but not yet in its search results (its "
+            "search index lags behind), so they are included: %s",
+            len(extra),
+            "; ".join(f"{item.label} (filed {_fmt_date(item.filed_date)})" for item in extra),
+        )
+    return extra
 
 
 def _warn(message: str) -> str:
