@@ -2,7 +2,10 @@
   "aliases": {
     "CL:11060100": "SC:28355",
     "CL:11060101": "SC:28354",
-    "CL:11060103": "COA:6170"
+    "CL:11060103": "COA:6170",
+    "CL:11065470": "SC:28356",
+    "CL:11065473": "SC:28357",
+    "CL:11065478": "COA:6171"
   },
   "digests": [
     {
@@ -15,6 +18,17 @@
       ],
       "status": "draft",
       "subject": "SC Advance Sheet Digest — November 12, 2026 — 3 opinions"
+    },
+    {
+      "created_at": "2026-11-18T19:22:24Z",
+      "email_id": "em_3jz6nb42f99d09kkhd0cwjvtah",
+      "items": [
+        "SC:28356",
+        "SC:28357",
+        "COA:6171"
+      ],
+      "status": "about_to_send",
+      "subject": "SC Advance Sheet Digest — November 18, 2026 — 3 opinions"
     }
   ],
   "items": {
@@ -31,6 +45,21 @@
       "last_attempt": "2026-11-16T23:28:24Z",
       "link_url": "https://www.sccourts.org/media/opinions/HTMLFiles/COA/6170%20.pdf",
       "source": "courtlistener-api",
+      "status": "summarized"
+    },
+    "COA:6171": {
+      "attempts": 1,
+      "case_name": "State v. Phillip Ronald Miller",
+      "court": "COA",
+      "digest_subject": "SC Advance Sheet Digest — November 18, 2026 — 3 opinions",
+      "email_id": "em_3jz6nb42f99d09kkhd0cwjvtah",
+      "error": null,
+      "filed_date": "2026-11-18",
+      "first_seen": "2026-11-18T19:22:24Z",
+      "kind": "opinion",
+      "last_attempt": "2026-11-18T19:22:24Z",
+      "link_url": "https://storage.courtlistener.com/pdf/2026/11/18/state_v._phillip_ronald_miller.pdf",
+      "source": "courtlistener-feed",
       "status": "summarized"
     },
     "SC:28354": {
@@ -62,8 +91,38 @@
       "link_url": "https://www.sccourts.org/media/opinions/HTMLFiles/SC/28355.pdf",
       "source": "courtlistener-api",
       "status": "summarized"
+    },
+    "SC:28356": {
+      "attempts": 1,
+      "case_name": "Tonya Winbush v. City of Anderson",
+      "court": "SC",
+      "digest_subject": "SC Advance Sheet Digest — November 18, 2026 — 3 opinions",
+      "email_id": "em_3jz6nb42f99d09kkhd0cwjvtah",
+      "error": null,
+      "filed_date": "2026-11-18",
+      "first_seen": "2026-11-18T19:22:24Z",
+      "kind": "opinion",
+      "last_attempt": "2026-11-18T19:22:24Z",
+      "link_url": "https://storage.courtlistener.com/pdf/2026/11/18/tonya_winbush_v._city_of_anderson.pdf",
+      "source": "courtlistener-feed",
+      "status": "summarized"
+    },
+    "SC:28357": {
+      "attempts": 1,
+      "case_name": "Paul David Hess v. Morphis Pediatric Group of Lancaster, P.A.",
+      "court": "SC",
+      "digest_subject": "SC Advance Sheet Digest — November 18, 2026 — 3 opinions",
+      "email_id": "em_3jz6nb42f99d09kkhd0cwjvtah",
+      "error": null,
+      "filed_date": "2026-11-18",
+      "first_seen": "2026-11-18T19:22:24Z",
+      "kind": "opinion",
+      "last_attempt": "2026-11-18T19:22:24Z",
+      "link_url": "https://storage.courtlistener.com/pdf/2026/11/18/paul_david_hess_v._morphis_pediatric_group_of_lancaster_p.a..pdf",
+      "source": "courtlistener-feed",
+      "status": "summarized"
     }
   },
-  "updated_at": "2026-11-16T23:28:24Z",
+  "updated_at": "2026-11-18T19:22:24Z",
   "version": 1
 }
