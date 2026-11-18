@@ -26,7 +26,7 @@ Safeguards (each is covered by tests/test_main.py):
   failures that would repeat (not outages), and an item that runs out of attempts is
   listed, without a summary, in the next digest. An API error that would hit every item
   (bad key, spend limit, no credits) stops the run before any email is created.
-- A second digest for the same week (a late posting, or a summary retried on Thursday)
+- A second digest for the same week (a late posting, or a summary retried by a later run)
   is labeled a supplement and never claims to describe the whole week.
 - Token usage is logged for every request, and the run ends with a cost summary.
 """

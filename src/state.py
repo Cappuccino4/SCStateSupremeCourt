@@ -456,8 +456,8 @@ class State:
 
         "The same week" is the first run's notion of it: on ``digest_date`` or up to
         ``window_days`` before it. A new digest for that week is a supplement to the earlier
-        one (for example the Thursday run that adds a late posting, or a summary that
-        failed on Wednesday). None when no such digest is recorded.
+        one (for example a later run that adds a late posting, or a summary that failed
+        in the first issue's run). None when no such digest is recorded.
         """
         floor = digest_date - timedelta(days=window_days)
         for digest in reversed(self._digests):

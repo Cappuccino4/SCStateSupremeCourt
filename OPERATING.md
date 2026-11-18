@@ -16,7 +16,7 @@ SC Advance Sheet Digest is a free weekly email that summarizes every newly publi
 
 | | |
 |---|---|
-| **Runs** | GitHub Actions, Wednesday afternoon and Thursday morning (Eastern), or by hand with "Run workflow" |
+| **Runs** | GitHub Actions, every hour from 11:17 AM to 9:17 PM Eastern on Wednesdays and Thursdays, or by hand with "Run workflow" |
 | **Opinions** | Published opinions, from CourtListener (Free Law Project) |
 | **Summaries** | Claude API, model `claude-sonnet-5-5` by default |
 | **Email** | Buttondown. Created as a draft; sent automatically only when `AUTO_SEND=true` |
@@ -27,7 +27,7 @@ SC Advance Sheet Digest is a free weekly email that summarizes every newly publi
 ### The weekly flow
 
 ```text
- GitHub Actions schedule (Wed afternoon + Thu morning, Eastern), or "Run workflow" by hand
+ GitHub Actions schedule (hourly on Wed + Thu, Eastern), or "Run workflow" by hand
      |
      v
  1. Find new opinions .... CourtListener: API search with your token, or the public
@@ -59,7 +59,7 @@ Every issue has the same parts, in this order:
 3. **Also filed this week (not summarized)**: only in a week with more items than the per-run cap.
 4. A footer with the disclaimer, the source, and Buttondown's unsubscribe link.
 
-Subjects look like `SC Advance Sheet Digest — November 12, 2026 — 3 opinions`. If a second email goes out for the same week (an opinion posted late, or a summary that wasn't ready on Wednesday), it is a **supplement**: its subject ends in "(supplement)", it names the week's earlier issue, and it lists only what it adds. The signup page (`docs/index.html`) shows a sample issue.
+Subjects look like `SC Advance Sheet Digest — November 12, 2026 — 3 opinions`. If a second email goes out for the same week (an opinion posted late, or a summary that wasn't ready for the first issue), it is a **supplement**: its subject ends in "(supplement)", it names the week's earlier issue, and it lists only what it adds. The signup page (`docs/index.html`) shows a sample issue.
 
 Claude works from the opinion's own text only. It is told not to use outside knowledge, to cite only authorities the opinion itself cites, and to write "unclear from the opinion" rather than guess. Facts the program already knows (case name, opinion number, court, filing date, and author) overwrite whatever the model wrote, and the change label (*Changes*, *Clarifies*, *Reaffirms*) always matches the "What changed" text. A very long opinion is shortened first, and its entry says how much of the text the summary is based on. If part of an opinion's PDF can't be read, it isn't summarized from the rest. If a summary can't be made, the opinion is still listed with its link: in that week's email, or, if no email goes out that run, in the next one.
 
@@ -418,21 +418,16 @@ If a scheduled run already created a draft before you got here, start at item 4.
 
 When the drafts look right, change the **Variable** `AUTO_SEND` to `true` (Settings > Secrets and variables > Actions > **Variables** tab; edit `AUTO_SEND`). From then on, every scheduled run that finds new opinions creates the email and sends it right away; test recipients, if any, get their copy first. Consider reviewing drafts for a few weeks first. You can also keep `AUTO_SEND=false` for good and click **Publish** in Buttondown each week.
 
-**The schedule.** GitHub reads the `cron` lines in `.github/workflows/weekly.yml` in UTC, so the Eastern times move by an hour with daylight saving time:
+**The schedule.** The job runs every hour at 17 minutes past, from 11:17 AM through 9:17 PM Eastern, on Wednesdays and Thursdays: 22 runs a week. In `.github/workflows/weekly.yml` that is the line `cron: "17 11-21 * * 3,4"` (minute, hour, day of the month, month, day of the week; 0 is Sunday, so 3 is Wednesday and 4 is Thursday), and the `timezone: "America/New_York"` line under it keeps those hours Eastern through daylight saving changes. GitHub can start a scheduled run a few minutes late when it is busy, and occasionally drops one; the next hour's run is the backstop.
 
-| Run | Cron line (UTC) | EDT (mid-March to early November) | EST (early November to mid-March) |
-|---|---|---|---|
-| Wednesday | `17 20 * * 3` | 4:17 PM | 3:17 PM |
-| Thursday | `17 13 * * 4` | 9:17 AM | 8:17 AM |
-
-A cron line reads: minute, hour (UTC), day of the month, month, day of the week (0 is Sunday, so 3 is Wednesday and 4 is Thursday). GitHub can start scheduled runs late when it is busy and occasionally drops one; the Thursday run is the backstop.
+Why these hours: the courts release opinions on Wednesday morning (now and then on another day, such as the Thursday after a Wednesday holiday), and CourtListener has usually stored all of them, both courts in the same pass, between about 10:15 AM and 12:30 PM Eastern. (That comes from the storage times of its copies of the opinion PDFs, June to November 2026.) The first run after that creates the email. The runs start at 11:17 rather than earlier so that they rarely catch a week half-stored. In one week of that sample, though, a fourth Supreme Court opinion arrived 84 minutes after the first three, which would have made it a supplement. To give up an hour of speed for fewer supplements, change `11-21` to `12-21`.
 
 **A normal week:**
 
-- **Wednesday afternoon.** The run finds the week's new published opinions, summarizes them, creates the email (and sends it when `AUTO_SEND=true`), and commits `data/processed.json`. The Actions tab shows a green check.
-- **Thursday morning.** The run checks again for late postings and usually ends with "No new opinions or orders since the last run. Nothing to send." If something new appeared (or a summary that failed on Wednesday now works), it creates a second, smaller digest with just those items, labeled a supplement: its subject ends in "(supplement)", it names Wednesday's issue, and it never says the week had no opinions from a court or no rule changes.
+- **Wednesday, late morning or early afternoon.** The first run after CourtListener has the week's opinions summarizes them, creates the email (and sends it when `AUTO_SEND=true`), and commits `data/processed.json`. The Actions tab shows a green check.
+- **The other runs** usually end in about a minute with "No new opinions or orders since the last run. Nothing to send." They make no Claude API call and upload no artifact. If something new appeared (or a summary that failed in an earlier run now works), the run creates a second, smaller digest with just those items, labeled a supplement: its subject ends in "(supplement)", it names the week's earlier issue, and it never says the week had no opinions from a court or no rule changes.
 - A week with no new published opinions produces no email.
-- The cost is a few cents per opinion. Runs never overlap; a run started while another is going waits its turn, then starts from the newest `data/processed.json`.
+- The cost is a few cents per opinion; a run that finds nothing new costs nothing (GitHub Actions minutes are free in a public repository). Runs never overlap; a run started while another is going waits its turn, then starts from the newest `data/processed.json`.
 
 **What failure looks like.** A failed run shows a red X in the Actions tab, and GitHub can email you about it, depending on your GitHub notification settings. Open the run: its summary page shows "FAILED:" and the reason (in the **Result** row of the table), and lists the errors and warnings. For the full story, open the **digest** job and expand **Build the digest**. A failed run still uploads whatever it wrote as an artifact, usually including `run_summary.json`.
 
@@ -615,7 +610,7 @@ requirements-dev.txt            The same, plus the test tools
 |---|---|
 | Stop automatic sending, keep drafts | Set the Variable `AUTO_SEND` to `false` |
 | Cover only the Supreme Court | Set the Variable `INCLUDE_COURT_OF_APPEALS` to `false` |
-| Change the schedule | Edit the two `cron` lines in `.github/workflows/weekly.yml` (UTC). GitHub also accepts a `timezone: "America/New_York"` line under each `cron` entry. Keep an odd minute (GitHub is busiest at the top of the hour), and avoid Thursday 9 PM to midnight Pacific (CourtListener's weekly maintenance). |
+| Change the schedule | Edit the `cron` line in `.github/workflows/weekly.yml`. Its hours are Eastern because of the `timezone: "America/New_York"` line under it (see "The schedule" in [step 13](#13-go-live)). Keep an odd minute (GitHub is busiest at the top of the hour), and avoid Thursday 9 PM to midnight Pacific (CourtListener's weekly maintenance). |
 | Edit the signup page | Edit `docs/`, then commit and push. GitHub Pages republishes within about 10 minutes. |
 
 ### Pause the job

@@ -2,11 +2,14 @@ name: Weekly SC Advance Sheet Digest
 
 on:
   schedule:
-    # GitHub runs schedules in UTC and may start them a few minutes late.
-    # Wednesday 20:17 UTC = 4:17 PM EDT (Mar-Nov) / 3:17 PM EST (Nov-Mar)
-    - cron: "17 20 * * 3"
-    # Thursday 13:17 UTC = 9:17 AM EDT / 8:17 AM EST (catches late postings; exits quietly if nothing is new)
-    - cron: "17 13 * * 4"
+    # Every hour at 17 past, 11:17 AM through 9:17 PM Eastern, on Wednesdays and Thursdays (22 runs a
+    # week). The timezone line keeps those Eastern times through daylight saving changes; GitHub may
+    # still start a run a few minutes late. CourtListener usually stores the week's opinions, both
+    # courts in the same pass, between about 10:15 AM and 12:30 PM Eastern on release day, so the
+    # first run after that creates the email and later runs pick up late postings. A run that finds
+    # nothing new ends in about a minute: no Claude API call, no email, no commit, no artifact.
+    - cron: "17 11-21 * * 3,4"
+      timezone: "America/New_York"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -94,7 +97,8 @@ jobs:
         run: python -m src.main
 
       - name: Save summary cache
-        if: always()
+        # Skipped when the run found nothing new (most hourly runs): it bought no summaries.
+        if: always() && steps.digest.outputs.has_new != 'false'
         uses: actions/cache/save@v6
         with:
           path: .cache/summaries
@@ -103,7 +107,7 @@ jobs:
 
       - name: Copy the state file into the artifact
         # So the record of this run can be restored by hand if the commit step below fails.
-        if: always()
+        if: always() && steps.digest.outputs.has_new != 'false'
         run: |
           if [ -f data/processed.json ]; then
             mkdir -p output
@@ -111,7 +115,8 @@ jobs:
           fi
 
       - name: Upload the digest as an artifact
-        if: always()
+        # Every run that found something new, or failed; a run with nothing new uploads nothing.
+        if: always() && steps.digest.outputs.has_new != 'false'
         uses: actions/upload-artifact@v7
         with:
           name: digest-run-${{ github.run_number }}

@@ -28,7 +28,7 @@
   <tr><th align="left">Cost</th><td>Free</td></tr>
   <tr><th align="left">Covers</th><td>Every newly published opinion of the Supreme Court of South Carolina and the South Carolina Court of Appeals</td></tr>
   <tr><th align="left">Not included</th><td>Unpublished opinions; Supreme Court orders, including rule amendments</td></tr>
-  <tr><th align="left">When it arrives</th><td>Usually one email a week, on Wednesday afternoon (Eastern); occasionally a short Thursday supplement; no email in a week with nothing new</td></tr>
+  <tr><th align="left">When it arrives</th><td>Usually one email a week, by early afternoon on Wednesday (Eastern); occasionally a short supplement; no email in a week with nothing new</td></tr>
   <tr><th align="left">Format</th><td>Rule changes first, then an AI-written summary of each opinion, with a link to the full opinion</td></tr>
   <tr><th align="left">Signing up</th><td>Enter your email on the <a href="https://cappuccino4.github.io/SCStateSupremeCourt/">signup page</a>, then click the confirmation link Buttondown emails you. Buttondown, which sends the digest, stores your address only to send it.</td></tr>
   <tr><th align="left">Unsubscribing</th><td>A link at the bottom of every email</td></tr>
@@ -86,7 +86,7 @@ In each entry:
 
 <details>
 <summary><strong>Why did I get a second email this week?</strong></summary>
-<p>When an opinion is posted late or a summary wasn’t ready in time, a short supplement follows on Thursday. Its subject ends in “(supplement)”; it names the week’s earlier issue and lists only what it adds.</p>
+<p>When an opinion is posted late or a summary wasn’t ready in time, a short supplement follows. Its subject ends in “(supplement)”; it names the week’s earlier issue and lists only what it adds.</p>
 </details>
 
 ## Disclaimer
